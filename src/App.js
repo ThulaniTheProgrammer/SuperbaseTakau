@@ -15,7 +15,7 @@ function App() {
       
      
           <Route path="Mainheader" element={<Mainheader />} />
-          <Route path="/" element={<Welcome/>} />
+          <Route  path="/" element={<Welcome/>} />
           
           
           
