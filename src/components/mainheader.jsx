@@ -7,6 +7,7 @@ import FinalReceipt from '../finalReceipt';
 import { ImQrcode } from 'react-icons/im';
 import Cart from './cart';
 import SearchComponent from './searchComponet';
+import { AiOutlineDown } from "react-icons/ai";
 
 
 
@@ -35,37 +36,51 @@ export default function Mainheader() {
       />
  </h3>
 </div>
-<div className='rounded-lg border  border-slate-300 h-8 w-1/4 mx-2 '>
-<h3 className='text-white items-center  flex justify-start pt-1'>  <ImQrcode className='pr-2 w-8' /> 
-<input
-        type="text"
-        placeholder="Car Name"
-        className='bg-black outline-black focus:outline-none'
-        
 
-      />
- </h3>
-</div>
-
-
-<div className='rounded-lg border  border-slate-300 h-8 w-1/4 mx-2 '>
-<h3 className='text-white items-center  flex justify-start pt-1'>  <ImQrcode className='pr-2 w-8' /> 
-<input
-        type="text"
-        placeholder="Model"
-        className='bg-black outline-black  focus:outline-none'
-
-      />
- </h3>
-</div>
-<div className='rounded-lg border  border-slate-300 h-8 w-1/4 mx-2 '>
-  <h3 className='text-white items-center  flex justify-start pt-1'>  <ImQrcode className='pr-2 w-8' /> 
+<div className='rounded-lg border  border-slate-300 h-8 w-1/4 mx-2 flex'>
+  <h3 className='text-white items-center  flex  justify-between  bg-black mx-1 pt-1'> 
+  
 <input
         type="int"
         placeholder="Year"
         className='bg-black outline-black  focus:outline-none'
 
       />
+
+<AiOutlineDown  className='pr-2 w-8 flex justify-end ' /> 
+
+ </h3>
+</div>
+
+
+<div className='rounded-lg border  border-slate-300 h-8 w-1/4 mx-2 flex'>
+  <h3 className='text-white items-center  flex  justify-between  bg-black mx-1 pt-1'> 
+  
+<input
+        type="int"
+        placeholder="Year"
+        className='bg-black outline-black  focus:outline-none'
+
+      />
+
+<AiOutlineDown  className='pr-2 w-8 flex justify-end ' /> 
+
+ </h3>
+</div>
+
+
+<div className='rounded-lg border  border-slate-300 h-8 w-1/4 mx-2 flex'>
+  <h3 className='text-white items-center  flex  justify-between  bg-black mx-1 pt-1'> 
+  
+<input
+        type="int"
+        placeholder="Year"
+        className='bg-black outline-black  focus:outline-none'
+
+      />
+
+<AiOutlineDown  className='pr-2 w-8 flex justify-end ' /> 
+
  </h3>
 </div>
 
