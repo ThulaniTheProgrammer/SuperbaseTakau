@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
+import { Link } from 'react-router-dom';
 
 
 
@@ -39,13 +40,12 @@ export default function Product() {
   return (
 
     <div className="h-400 w-full">
-        <div className='flex justify-between'>
-            <div>
-                hello
+        <div className='flex justify-between mt-4 mb-4 mx-4'>
+            <div className='text-2xl'>
+               Takau Holdings 
             </div>
-            <div>
-                hello
-            </div>
+            
+            <Link to="/AddProduct" className='rounded-lg flex items-center bg-pink-400 px-5'>Add Products</Link>
         </div>
       <DataGrid
         rows={rows}

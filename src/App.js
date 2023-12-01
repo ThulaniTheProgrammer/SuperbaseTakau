@@ -10,6 +10,7 @@ import WelcomeManager from './pages/WelcomeManager';
 import SighnUp from './pages/SighnUp';
 import ManagerMain from './components/ManagerMain';
 import Product from './pages/Products/Product';
+import AddProduct from './pages/Products/AddProduct';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="ManagerMain" element={<ManagerMain/>} />
           <Route  path="/" element={<Welcome/>}/>
           <Route  path="Product" element={<Product/>}/>
+          <Route  path="AddProduct" element={<AddProduct/>}/>
               
       </Routes>
     </BrowserRouter>
