@@ -16,15 +16,16 @@ export const managerregister=createAsyncThunk('auth/manager-register',async(user
 try {
     return await authService.managerSignup(user)
 } catch (error) {
-    const message= (error.response&& error.response.data&&error.response.data.message) || error.message || error.toString()
-return thunkAPI.rejectWithValue(message)
+    const message=error.response.data.msg || error.message || error.toString()
+    return thunkAPI.rejectWithValue(message)
 }
 })
 export const managerlogin=createAsyncThunk('auth/manager-login',async(user,thunkAPI)=>{
 try {
     return await authService.managerSignin(user)
 } catch (error) {
-    const message= (error.response&& error.response.data&&error.response.data.message) || error.message || error.toString()
+    console.log(error);
+    const message=error.response.data.msg || error.message || error.toString()
 return thunkAPI.rejectWithValue(message)
 }
 })
@@ -48,16 +49,16 @@ export const adminregister=createAsyncThunk('auth/admin-register',async(user,thu
 try {
     return await authService.adminSignup(user)
 } catch (error) {
-    const message= (error.response&& error.response.data&&error.response.data.message) || error.message || error.toString()
-return thunkAPI.rejectWithValue(message)
+    const message=error.response.data.msg || error.message || error.toString()
+    return thunkAPI.rejectWithValue(message)
 }
 })
 export const adminlogin=createAsyncThunk('auth/admin-login',async(user,thunkAPI)=>{
 try {
     return await authService.adminSignin(user)
 } catch (error) {
-    const message= (error.response&& error.response.data&&error.response.data.message) || error.message || error.toString()
-return thunkAPI.rejectWithValue(message)
+    const message=error.response.data.msg || error.message || error.toString()
+    return thunkAPI.rejectWithValue(message)
 }
 })
 export const adminprofile=createAsyncThunk('auth/admin-profile',async(signature,thunkAPI)=>{
@@ -80,16 +81,16 @@ export const tilloperatorregister=createAsyncThunk('auth/till-operator-register'
 try {
     return await authService.tillOperatorSignup(user)
 } catch (error) {
-    const message= (error.response&& error.response.data&&error.response.data.message) || error.message || error.toString()
-return thunkAPI.rejectWithValue(message)
+    const message=error.response.data.msg || error.message || error.toString()
+    return thunkAPI.rejectWithValue(message)
 }
 })
 export const tilloperatorlogin=createAsyncThunk('auth/till-operator-login',async(user,thunkAPI)=>{
 try {
     return await authService.tillOperatorSignin(user)
 } catch (error) {
-    const message= (error.response&& error.response.data&&error.response.data.message) || error.message || error.toString()
-return thunkAPI.rejectWithValue(message)
+    const message=error.response.data.msg || error.message || error.toString()
+    return thunkAPI.rejectWithValue(message)
 }
 })
 export const tilloperatorprofile=createAsyncThunk('auth/till-operator-profile',async(signature,thunkAPI)=>{

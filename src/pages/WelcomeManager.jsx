@@ -25,14 +25,11 @@ async function submitForm(e) {
    
   }
   useEffect(() => {
-    if (isError) {
-      alert(message)
-    }
+    
     if (isSuccess||user) {
       navigate("/Mainheader")
     }
-    
-    dispatch(reset())
+ 
     }, [user,isError,isSuccess,message,navigate,dispatch])
     
    // onClick={() => navigate("/Mainheader")}  
@@ -40,19 +37,23 @@ async function submitForm(e) {
   return (
     <div className="flex items-center justify-center h-screen ">
 
-     {
-      ///This is subject to change.I have done this as an example of how do it with Redux you can do it in the way you are comfortable with.
-      isLoading ? <h2>
-        Loading....
-      </h2> :
-      isError ? <h2>
-        Error....
-      </h2>
-      : null
-     }
+  
     <form onSubmit={submitForm} className="w-3/4 p-6 bg-slate-800  shadow pb-40 pt-32 rounded-3xl">
    
     <div className='text-center bold text-white text-2xl '>Welcome to Takau Holdings</div>
+    <div className='text-center mb-4 bold text-white text-sm '>
+      <br />
+      {
+       ///This is subject to change.I have done this as an example of how do it with Redux you can do it in the way you are comfortable with.
+       isLoading ? <h2>
+         Loading....
+       </h2> :
+      isError ? <h2>
+       {message}
+       </h2>
+       : null
+      }
+     </div>
       <div className="flex flex-col flex-grow mt-2 mb-2">
       
         <label htmlFor="username" className="mb-1 flex  items-center text-white">Email:</label>
