@@ -37,11 +37,20 @@ const headerClassName = 'font-bold';
 
 export default function Product() {
   return (
+
     <div className="h-400 w-full">
+        <div className='flex justify-between'>
+            <div>
+                hello
+            </div>
+            <div>
+                hello
+            </div>
+        </div>
       <DataGrid
         rows={rows}
         columns={columns.map((column) => ({
-          name,
+          ...column,
           headerClassName, // Apply the headerClassName to each column
         }))}
         pageSize={5}

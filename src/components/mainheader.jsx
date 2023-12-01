@@ -27,61 +27,61 @@ export default function Mainheader() {
   <div className='h-screen'>
      <div className='flex justify-between pt-4   w-full mb-8 mx-2'>
         <div className='flex flex-row w-3/4  justify-between'>
-<div className='text-2xl font-bold text-white mr-12'>Takakou</div>
+<div className='text-2xl font-bold text-black mr-12'>Takakou</div>
 <div className='rounded-lg border  border-slate-300 h-8 w-1/4 mx-2 '>
 <h3 className='text-white items-center  flex justify-start pt-1'>  <ImQrcode className='pr-2 w-8' /> 
 <input
         type="text"
         placeholder="Search Car Part"
-        className='bg-black outline-black  focus:outline-none'
+        className='bg-white outline-white  focus:outline-none'
 
       />
  </h3>
 </div>
 
-<div className='rounded-lg border  border-slate-300 h-8 w-1/4 mx-2 flex'>
-  <h3 className='text-white items-center  flex  justify-between  bg-black mx-1 pt-1'> 
+<div className='rounded-lg border bg-white  border-slate-300 h-8 w-1/4 mx-2 flex'>
+  <h3 className='text-white items-center  flex  justify-between  bg-white mx-1 pt-1'> 
   
 <input
         type="int"
         placeholder="Year"
-        className='bg-black outline-black  focus:outline-none'
+        className='bg-white outline-white  focus:outline-none'
 
       />
 
-<AiOutlineDown  className='pr-2 w-8 flex justify-end ' /> 
-
- </h3>
-</div>
-
-
-<div className='rounded-lg border  border-slate-300 h-8 w-1/4 mx-2 flex'>
-  <h3 className='text-white items-center  flex  justify-between  bg-black mx-1 pt-1'> 
-  
-<input
-        type="int"
-        placeholder="Year"
-        className='bg-black outline-black  focus:outline-none'
-
-      />
-
-<AiOutlineDown  className='pr-2 w-8 flex justify-end ' /> 
+<AiOutlineDown  className='flex justify-end text-slate-300' /> 
 
  </h3>
 </div>
 
 
 <div className='rounded-lg border  border-slate-300 h-8 w-1/4 mx-2 flex'>
-  <h3 className='text-white items-center  flex  justify-between  bg-black mx-1 pt-1'> 
+  <h3 className='text-white items-center  flex  justify-between  bg-white mx-1 pt-1'> 
   
 <input
         type="int"
         placeholder="Year"
-        className='bg-black outline-black  focus:outline-none'
+        className='bg-white outline-white   focus:outline-none'
 
       />
 
-<AiOutlineDown  className='pr-2 w-8 flex justify-end ' /> 
+<AiOutlineDown  className='pr-2 w-8 flex justify-end text-slate-300 ' /> 
+
+ </h3>
+</div>
+
+
+<div className='rounded-lg border  border-slate-300 h-8 w-1/4 mx-2 flex'>
+  <h3 className='text-white items-center  flex  justify-between  bg-white mx-1 pt-1'> 
+  
+<input
+        type="int"
+        placeholder="Year"
+        className='bg-white outline-white  focus:outline-none'
+
+      />
+
+<AiOutlineDown  className='pr-2 w-8 flex justify-end text-slate-300 ' /> 
 
  </h3>
 </div>
@@ -96,7 +96,7 @@ export default function Mainheader() {
 
 <div className='flex justify-between mr-6 font-semibold'>
 <div className='mx-4'>
-       <ul className='text-white'>
+       <ul className='text-black'>
           <li className='my-4'>
             <Link to="/Menu">Menu</Link>
           </li>
