@@ -62,7 +62,7 @@ async function submitForm(e) {
         <input    onChange={(e)=>setpassword(e.target.value)}  type="password" id="password" name="password" required className="w-3/4 p-2 border border-black rounded" />
       </div>
       <div className=" text-white flex justify-center">
-        <button type="submit"  onClick={() => navigate("/Mainheader")}    className="px-4 py-2 bg-red-400 text-white rounded ">Log In</button>
+        <button type="submit"  onClick={() => navigate("/ManagerMain")}    className="px-4 py-2 bg-red-400 text-white rounded ">Log  kkkIn</button>
       </div>
      </form>
   </div>

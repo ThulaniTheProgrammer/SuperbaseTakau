@@ -8,7 +8,8 @@ import CarName from './components/carName';
 import WelcomeAdmin from './pages/WelcomeAdmin';
 import WelcomeManager from './pages/WelcomeManager';
 import SighnUp from './pages/SighnUp';
-import ManagerMain from './pages/ManagerMain';
+import ManagerMain from './components/ManagerMain';
+import Product from './pages/Products/Product';
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <Route path="WelcomeManager" element={<WelcomeManager/>} />
           <Route path="SighnUp" element={<SighnUp/>} />
           <Route path="ManagerMain" element={<ManagerMain/>} />
-          <Route  path="Welcome" element={<Welcome/>}/>
+          <Route  path="/" element={<Welcome/>}/>
+          <Route  path="Product" element={<Product/>}/>
               
       </Routes>
     </BrowserRouter>

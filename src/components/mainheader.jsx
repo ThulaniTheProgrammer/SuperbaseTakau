@@ -8,6 +8,8 @@ import { ImQrcode } from 'react-icons/im';
 import Cart from './cart';
 import SearchComponent from './searchComponet';
 import { AiOutlineDown } from "react-icons/ai";
+import ManagerMain from './ManagerMain';
+import Product from '../pages/Products/Product';
 
 
 
@@ -102,10 +104,10 @@ export default function Mainheader() {
             <Link to="/SecondNav">Orders</Link>
           </li>
           <li className='my-4'>
-            <Link to="/Team">Reports</Link>
+            <Link to="/ManagerMain">Reports</Link>
           </li>
           <li className='my-4'>
-            <Link to="/Team">Stock</Link>
+            <Link to="/Product">Stock</Link>
           </li>
           <li className='my-4'>
             <Link to="/Team">Settings</Link>
