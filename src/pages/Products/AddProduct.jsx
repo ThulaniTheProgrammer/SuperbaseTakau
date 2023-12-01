@@ -37,6 +37,79 @@ export default function AddProduct() {
         <div className="flex">
           <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
             <label htmlFor="name" className="mb-1 flex items-center text-black">
+              Car Name:
+            </label>
+            <input
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
+            />
+          </div>
+          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+            <label htmlFor="name" className="mb-1 flex items-center text-black">
+              Part Name:
+            </label>
+            <input
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
+            />
+          </div>
+        </div>
+
+        <div className="flex">
+          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+            <label htmlFor="name" className="mb-1 flex items-center text-black">
+              Model:
+            </label>
+            <input
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
+            />
+          </div>
+          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+            <label htmlFor="name" className="mb-1 flex items-center text-black">
+              Year:
+            </label>
+            <input
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
+            />
+          </div>
+
+       
+        </div>
+
+        <div className="flex">
+          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+            <label htmlFor="name" className="mb-1 flex items-center text-black">
+              Barcode:
+            </label>
+            <input
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
+            />
+          </div>
+          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+            <label htmlFor="name" className="mb-1 flex items-center text-black">
               Name:
             </label>
             <input
@@ -49,48 +122,13 @@ export default function AddProduct() {
             />
           </div>
 
-          <div className="flex flex-col flex-grow mt-8 w-1/2 ml-4">
-            <label htmlFor="phone" className="mb-1 flex items-center text-white">
-              Phone:
-            </label>
-            <input
-              onChange={(e) => setPhone(e.target.value)}
-              type="text"
-              id="phone"
-              name="phone"
-              required
-              className="w-full p-2 border border-gray-400 bg-slate-800 rounded-xl"
-            />
-          </div>
+       
         </div>
 
-        <div className="flex flex-col flex-grow mt-2 mb-2">
-          <label htmlFor="password" className="mb-1 flex items-center text-white">
-            Password:
-          </label>
-          <input
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            id="password"
-            name="password"
-            required
-            className="w-full p-2 border border-gray-400 bg-slate-800 rounded-xl"
-          />
-        </div>
 
-        <div className="flex flex-col flex-grow mt-2 mb-2">
-          <label htmlFor="email" className="mb-1 flex items-center text-white">
-            Email:
-          </label>
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            id="email"
-            name="email"
-            required
-            className="w-full p-2 border border-gray-400 bg-slate-800 rounded-xl"
-          />
-        </div>
+      
+
+        
 
         <div className="text-white flex justify-center mt-20">
           
