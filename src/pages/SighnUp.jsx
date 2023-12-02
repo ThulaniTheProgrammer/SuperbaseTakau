@@ -51,7 +51,7 @@ async function submitForm(e) {
       </h2>
       : null
      }
-    <form onSubmit={submitForm} className="w-3/4 p-6 bg-slate-800  shadow pb-40 pt-32 rounded-3xl">
+    <form onSubmit={submitForm} className="w-3/4 p-6 bg-slate-900  shadow pb-40 pt-32 rounded-3xl">
     <div className='text-center bold text-white text-2xl  '>Takau Holdings Sign Up </div>
    
 
