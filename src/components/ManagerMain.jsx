@@ -13,7 +13,7 @@ import Curve from './graphs/Curve';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { AiOutlineUp } from "react-icons/ai";
-import OdersTable from './Tables/OrdersTable';
+import Stock from './Tables/Stock';
 import Product from '../pages/Products/Product';
 
 
@@ -119,7 +119,7 @@ export default function ManagerMain() {
 </div>
 </div>
 </div>
-<OdersTable />
+<Stock />
     </div>   
 
 

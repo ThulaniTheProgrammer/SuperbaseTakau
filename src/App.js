@@ -10,7 +10,11 @@ import WelcomeManager from './pages/WelcomeManager';
 import SighnUp from './pages/SighnUp';
 import ManagerMain from './components/ManagerMain';
 import Product from './pages/Products/Product';
+import Stock from './components/Tables/Stock';
+import Adminstrator from './pages/Users Registration/Adminstator';
+import Manager from './pages/Users Registration/Manager';
 import AddProduct from './pages/Products/AddProduct';
+
 
 function App() {
   return (
@@ -26,6 +30,10 @@ function App() {
           <Route  path="/" element={<Welcome/>}/>
           <Route  path="Product" element={<Product/>}/>
           <Route  path="AddProduct" element={<AddProduct/>}/>
+          <Route  path="Stock" element={<Stock/>}/>
+          <Route  path="AddProduct" element={<Product/>}/>
+          <Route  path="Adminstrator" element={<Adminstrator/>}/>
+          <Route  path="Manager" element={<Manager/>}/>
               
       </Routes>
     </BrowserRouter>

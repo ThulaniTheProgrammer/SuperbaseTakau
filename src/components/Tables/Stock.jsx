@@ -36,7 +36,7 @@ const invoiceSubtotal = subtotal(rows);
 const invoiceTaxes = TAX_RATE * invoiceSubtotal;
 const invoiceTotal = invoiceTaxes + invoiceSubtotal;
 
-export default function OrdersTable() {
+export default function Stock() {
   return (
     <div>
     <TableContainer  className="" component={Paper}>

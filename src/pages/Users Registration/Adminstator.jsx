@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Link } from 'react-router-dom';
-import { useDispatch,useSelector } from 'react-redux';
 
-import { useEffect } from 'react';
-import { getproducts } from '../../redux/features/products/productSlice';
+
 
 const columns = [
-  { field: '_id', headerName: 'ID', width: 70 },
+  { field: 'id', headerName: 'ID', width: 70 },
   { field: 'name', headerName: 'Car Name', width: 130 },
   { field: 'brand', headerName: 'Part Name', width: 130 },
   { field: 'model', headerName: 'Model', width: 90 },
@@ -23,39 +21,22 @@ const columns = [
     valueGetter: (params) => `${params.row.firstName || ''} ${params.row.lastName || ''}`,
   },
 ];
-/*
+
 const rows = [
-  { id: 1, name: 'Toyota', brand: 'Engine', age: 35 },
+  { id: 1, name: 'Toyota', firstName: '', age: 35 },
   { id: 2, name: 'Mitsubishi', firstName: '', age: 42 },
   { id: 3, name: 'Mazda', firstName: '', age: 45 },
   { id: 4, name: 'Nissan', firstName: '', age: 16 },
   { id: 5, name: 'Ford', firstName: '', age: null },
   { id: 6, name: 'Honda', firstName: null, age: 150 },
   { id: 7, name: 'Hundai', firstName: '', age: 44 },
-  { id: 8, name: 'Mazda', firstName: '', age: 36 },
+  { id: 8, name: '', firstName: '', age: 36 },
   { id: 9, name: '', firstName: '', age: 65 },
-
 ];
-*/
+
 const headerClassName = 'font-bold';
 
-export default function Product() {
-  const dispatch= useDispatch()
-  const products=useSelector((state)=>state.products);
-  const {loading,data,error}=products
-  let rows= data;
-  console.log('====================================');
-  console.log(rows);
-  console.log('====================================');
-  console.log('====================================');
-  //console.log(products);
-  console.log('====================================');
-  useEffect(() => {
-    
-  dispatch(getproducts())
-  
-  }, [])
-  
+export default function Adminstrator() {
   return (
 
     <div className="h-400 w-full">
@@ -64,22 +45,17 @@ export default function Product() {
                Takau Holdings 
             </div>
             
-            <Link to="/AddProduct" className='rounded-lg flex items-center bg-pink-400 px-5'>Add Products</Link>
+            <Link to="/AddProduct" className='rounded-lg flex items-center bg-pink-400 px-5'>Add Admistrator</Link>
         </div>
-        {
-          loading ? <h2>loading</h2> : error ? <h2>Error</h2> : <DataGrid
-          rows={rows}
-        
-          getRowId={(row) =>  row._id }
-          pageSize={5}
-          columns={columns.map((column) => ({
-            ...column,
-            headerClassName, // Apply the headerClassName to each column
-          }))}
-          checkboxSelection
-        />
-        }
-      
+      <DataGrid
+        rows={rows}
+        columns={columns.map((column) => ({
+          ...column,
+          headerClassName, // Apply the headerClassName to each column
+        }))}
+        pageSize={5}
+        checkboxSelection
+      />
     </div>
   );
 }
