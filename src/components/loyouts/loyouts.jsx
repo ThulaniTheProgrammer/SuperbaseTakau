@@ -1,16 +1,16 @@
 import React from 'react'
 import { Outlet, Link, Touchable } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Manager from '../../pages/Users Registration/Manager';
 
 import { ImQrcode } from 'react-icons/im';
 
-import { AiOutlineDown } from "react-icons/ai";
-import Product from '../../pages/Products/Product';
 
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { AiOutlineDown } from "react-icons/ai";
+
 import 'react-circular-progressbar/dist/styles.css';
 import { AiOutlineUp } from "react-icons/ai";
-import ManagerMain from '../ManagerMain';
+
 
 import { CiCreditCard2 } from "react-icons/ci";
 import { TbReport } from "react-icons/tb";
@@ -25,7 +25,8 @@ import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 
 
 
-export default function Loyout() {
+
+export default function Loyouts() {
   const colors = ["green","red","yellow"]
   function getRandomNumber() {
     return Math.floor(Math.random()*colors.length)
@@ -75,7 +76,7 @@ export default function Loyout() {
 
           <li className='my-4 flex items-center'>
           <FiUsers className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/SecondNav">Users</Link>
+            <Link to="/Manager">Users</Link>
           </li>
           
          
@@ -84,16 +85,14 @@ export default function Loyout() {
        </div>
 <div className='w-full'>
 
-<Product/>
 
 
 
 </div>
 </div>
-
     </div>   
 
 
 
   )
-} 
+}

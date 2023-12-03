@@ -1,17 +1,20 @@
 import React from 'react'
 import { Outlet, Link, Touchable } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import CarName from './carName';
+import Receipts from './receipts';
+import FinalReceipt from '../finalReceipt';
 import { ImQrcode } from 'react-icons/im';
-
+import Cart from './cart';
+import SearchComponent from './searchComponet';
 import { AiOutlineDown } from "react-icons/ai";
-import Product from '../../pages/Products/Product';
-
+import SalesCard from './SalesCard';
+import Curve from './graphs/Curve';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { AiOutlineUp } from "react-icons/ai";
-import ManagerMain from '../ManagerMain';
-
+import Stock from './Tables/Stock';
+import Product from '../pages/Products/Product';
 import { CiCreditCard2 } from "react-icons/ci";
 import { TbReport } from "react-icons/tb";
 import { AiOutlineStock } from "react-icons/ai";
@@ -22,6 +25,8 @@ import { MdOutlineHouse } from "react-icons/md";
 import { CiShoppingCart } from "react-icons/ci";
 import { LuSaveAll } from "react-icons/lu";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+import ManagerMain from './ManagerMain';
+import Orders from './Tables/Orders';
 
 
 
@@ -84,7 +89,7 @@ export default function Loyout() {
        </div>
 <div className='w-full'>
 
-<Product/>
+<Orders />
 
 
 
@@ -96,4 +101,4 @@ export default function Loyout() {
 
 
   )
-} 
+}
