@@ -27,22 +27,21 @@ function subtotal(items) {
 }
 
 const rows = [
-  createRow('Gearbox', 100, 1.15),
-  createRow('Chisel', 10, 45.99),
-  createRow('Rear mirrors', 2, 17.99),
+  createRow('Paperclips (Box)', 100, 1.15),
+  createRow('Paper (Case)', 10, 45.99),
+  createRow('Waste Basket', 2, 17.99),
 ];
 
 const invoiceSubtotal = subtotal(rows);
 const invoiceTaxes = TAX_RATE * invoiceSubtotal;
 const invoiceTotal = invoiceTaxes + invoiceSubtotal;
 
-export default function OrdersTable() {
+function SpanningTable() {
   return (
-    <div>
-    <TableContainer  className="" component={Paper}>
-      <Table sx={{ minWidth: 700 }} >
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 700 }} aria-label="spanning table">
         <TableHead>
-          <TableRow >
+          <TableRow>
             <TableCell align="center" colSpan={3}>
               Details
             </TableCell>
@@ -81,6 +80,14 @@ export default function OrdersTable() {
         </TableBody>
       </Table>
     </TableContainer>
+  );
+}
+
+export default function Orders() {
+  return (
+    <div>
+     
+      <SpanningTable />
     </div>
   );
 }

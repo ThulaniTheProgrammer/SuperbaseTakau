@@ -11,15 +11,19 @@ export default function SighnUp() {
   console.log(user,isLoading,isError,isSuccess,message);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-const [email, setemail] = useState("");
+
+
 const [name, setname] = useState("");
 const [surname, setsurname] = useState("");
 const [phone, setphone] = useState("");
 const [password, setpassword] = useState("");
+const [email, setemail] = useState("")
 async function submitForm(e) {
   e.preventDefault()
 
+
     const userData={name,surname,phone,email,password}
+
     dispatch(managerregister(userData))
   
 
@@ -51,7 +55,7 @@ async function submitForm(e) {
       </h2>
       : null
      }
-    <form onSubmit={submitForm} className="w-3/4 p-6 bg-slate-800  shadow pb-40 pt-32 rounded-3xl">
+    <form onSubmit={submitForm} className="w-3/4 p-6 bg-slate-900  shadow pb-40 pt-32 rounded-3xl">
     <div className='text-center bold text-white text-2xl  '>Takau Holdings Sign Up </div>
    
 
@@ -59,10 +63,12 @@ async function submitForm(e) {
     <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
         <label htmlFor="password" className="mb-1 flex items-center text-white ">Name:</label>
         <input    onChange={(e)=>setname(e.target.value)}  type="text" id="password" name="password" required className="w-full p-2 border border-gray-400 bg-slate-800  rounded-xl" />
+
       </div>
     <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
         <label htmlFor="password" className="mb-1 flex items-center text-white ">Surname:</label>
         <input    onChange={(e)=>setsurname(e.target.value)}  type="text" id="password" name="password" required className="w-full p-2 border border-gray-400 bg-slate-800  rounded-xl" />
+
       </div>
 
 
@@ -80,7 +86,9 @@ async function submitForm(e) {
 
     <div className="flex flex-col flex-grow mt-2 mb-2">
         <label htmlFor="password" className="mb-1 flex items-center text-white ">Email:</label>
+
         <input    onChange={(e)=>setemail(e.target.value)}  type="email" id="password" name="password" required className="w-full p-2 border  border-gray-400 bg-slate-800  rounded-xl" />
+
       </div>
 
       

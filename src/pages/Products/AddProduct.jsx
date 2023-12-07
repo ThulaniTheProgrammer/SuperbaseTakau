@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { managerlogin } from '../../redux/features/auth/authSlice';
 import { createproduct } from '../../redux/features/products/productSlice';
 
 export default function AddProduct() {
-  const { user } = useSelector((state) => state.auth);
-  const signature=user.signature;
-console.log(signature);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+
+ const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
+
   const [name, setname] = useState("")
   const [brand, setbrand] = useState("")
   const [model, setmodel] = useState("")
@@ -21,15 +20,11 @@ console.log(signature);
   const [year, setYear] = useState("")
   const [shelfNumber, setShelfNumber] = useState("")
 
-  const submitForm = async (e) => {
-    e.preventDefault();
  
+  const signature=user.signature;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-    
-    dispatch(createproduct(name, brand,model,sellingPrice,buyingPrice,barcode,quantityBought,quantitySold,year,shelfNumber,signature));
-
-    // Additional logic after dispatching the action
-  };
   /*
   useEffect(() => {
    
@@ -71,10 +66,10 @@ console.log(signature);
           </div>
           <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
             <label htmlFor="name" className="mb-1 flex items-center text-black">
-              Car Name:
+             Brand:
             </label>
             <input
-              onChange={(e) => setbrand(e.target.value)}
+onChange={(e)=>setbrand(e.target.value)}
               type="text"
               id="name"
               name="name"
@@ -95,41 +90,7 @@ console.log(signature);
               Model:
             </label>
             <input
-              onChange={(e) => setmodel(e.target.value)}
-              type="text"
-              id="name"
-              name="name"
-              required
-              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
-            />
-          </div>
-          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
-            <label htmlFor="name" className="mb-1 flex items-center text-black">
-              Quantity Bought:
-            </label>
-            <input
-              onChange={(e) => setQuantityBought(e.target.value)}
-              type="text"
-              id="name"
-              name="name"
-              required
-              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
-            />
-          </div>
-       
-         
-         
-       
-       </div>
-
-      
-        <div className="flex">
-        <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
-            <label htmlFor="name" className="mb-1 flex items-center text-black">
-              Quantity Sold:
-            </label>
-            <input
-              onChange={(e) => setQuantitySold(e.target.value)}
+onChange={(e)=>setmodel(e.target.value)}
               type="text"
               id="name"
               name="name"
@@ -179,6 +140,32 @@ console.log(signature);
               className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
             />
           </div>
+          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+            <label htmlFor="name" className="mb-1 flex items-center text-black">
+           Quantity Bought:
+            </label>
+            <input
+              onChange={(e) => setQuantityBought(e.target.value)}
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
+            />
+          </div>
+          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+            <label htmlFor="name" className="mb-1 flex items-center text-black">
+          Quantity Sold:
+            </label>
+            <input
+              onChange={(e) => setQuantitySold(e.target.value)}
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
+            />
+          </div>
 </div>
 <div className="flex">
         <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
@@ -196,10 +183,12 @@ console.log(signature);
           </div>
         <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
             <label htmlFor="name" className="mb-1 flex items-center text-black">
+
               Shelf Number:
             </label>
             <input
               onChange={(e) => setShelfNumber(e.target.value)}
+
               type="text"
               id="name"
               name="name"
@@ -227,6 +216,10 @@ console.log(signature);
           
         </div>
       </form>
+
+
+<Link className='rounded bg-pink-400 py-4 px-4' to="/Product">Add Products</Link>
+
     </div>
   );
 }

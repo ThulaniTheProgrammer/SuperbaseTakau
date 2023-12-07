@@ -12,6 +12,7 @@ function createConfig(signature) {
     }
     return config
 }
+
 const createproduct=async(name, brand,model,sellingPrice,buyingPrice,barcode,quantityBought,quantitySold,year,shelfNumber,signature)=>{
     let config={
         headers:{
@@ -23,8 +24,7 @@ const createproduct=async(name, brand,model,sellingPrice,buyingPrice,barcode,qua
     }
     console.log(signature);
 const {data}= await axios.post(`${BASE_URL}/create-product`, {name, brand,model,sellingPrice,buyingPrice,barcode,quantityBought,quantitySold,year,shelfNumber},config)
-
-return data;
+return data
 }
 const updateproduct=async(id,product,signature)=>{
    const {data}= await axios.put(`${BASE_URL}/update-product/${id}`,product,createConfig(signature))
