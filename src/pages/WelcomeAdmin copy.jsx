@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function WelcomeAdmin() {
   const {user,isLoading,isError,isSuccess,message}= useSelector((state)=>state.auth);
+  console.log(user,isLoading,isError,isSuccess,message);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 const [email, setemail] = useState("");
@@ -27,11 +28,11 @@ async function submitForm(e) {
     if (isError) {
       alert(message)
     }
-    if (isSuccess||user) {
-      navigate("/Mainheader")
-    }
+    //if (isSuccess||user) {
+     // navigate("/Mainheader")
+    //}
     
-    dispatch(reset())
+    //dispatch(reset())
     }, [user,isError,isSuccess,message,navigate,dispatch])
     
    // onClick={() => navigate("/Mainheader")}  

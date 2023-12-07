@@ -1,36 +1,39 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import CarName from '../components/carName';
-import { managerlogin, reset } from '../redux/features/auth/authSlice';
+import { managerlogin, managerregister, reset } from '../redux/features/auth/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import WelcomeAdmin from './WelcomeAdmin';
 import WelcomeManager from './WelcomeManager';
 
 export default function SighnUp() {
   const {user,isLoading,isError,isSuccess,message}= useSelector((state)=>state.auth);
+  console.log(user,isLoading,isError,isSuccess,message);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 const [email, setemail] = useState("");
+const [name, setname] = useState("");
+const [surname, setsurname] = useState("");
+const [phone, setphone] = useState("");
 const [password, setpassword] = useState("");
 async function submitForm(e) {
   e.preventDefault()
 
-    const userData={email,password}
-    dispatch(managerlogin(userData))
+    const userData={name,surname,phone,email,password}
+    dispatch(managerregister(userData))
   
 
   
    
   }
+  console.log(name,surname,phone,email,password);
   useEffect(() => {
-    if (isError) {
-      alert(message)
-    }
+   
     if (isSuccess||user) {
       navigate("/Mainheader")
     }
     
-    dispatch(reset())
+    //dispatch(reset())
     }, [user,isError,isSuccess,message,navigate,dispatch])
     
    // onClick={() => navigate("/Mainheader")}  
@@ -55,13 +58,17 @@ async function submitForm(e) {
 <div className='flex '>
     <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
         <label htmlFor="password" className="mb-1 flex items-center text-white ">Name:</label>
-        <input    onChange={(e)=>setpassword(e.target.value)}  type="password" id="password" name="password" required className="w-full p-2 border border-gray-400 bg-slate-800  rounded-xl" />
+        <input    onChange={(e)=>setname(e.target.value)}  type="text" id="password" name="password" required className="w-full p-2 border border-gray-400 bg-slate-800  rounded-xl" />
+      </div>
+    <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+        <label htmlFor="password" className="mb-1 flex items-center text-white ">Surname:</label>
+        <input    onChange={(e)=>setsurname(e.target.value)}  type="text" id="password" name="password" required className="w-full p-2 border border-gray-400 bg-slate-800  rounded-xl" />
       </div>
 
 
       <div className="flex flex-col flex-grow mt-8  w-1/2 ml-4">
         <label htmlFor="password" className="mb-1 flex items-center text-white ">Phone:</label>
-        <input    onChange={(e)=>setpassword(e.target.value)}  type="password" id="password" name="password" required className="w-full p-2 border  border-gray-400 bg-slate-800  rounded-xl" />
+        <input    onChange={(e)=>setphone(e.target.value)}  type="text" id="password" name="password" required className="w-full p-2 border  border-gray-400 bg-slate-800  rounded-xl" />
       </div>
       </div>
 
@@ -73,13 +80,13 @@ async function submitForm(e) {
 
     <div className="flex flex-col flex-grow mt-2 mb-2">
         <label htmlFor="password" className="mb-1 flex items-center text-white ">Email:</label>
-        <input    onChange={(e)=>setpassword(e.target.value)}  type="password" id="password" name="password" required className="w-full p-2 border  border-gray-400 bg-slate-800  rounded-xl" />
+        <input    onChange={(e)=>setemail(e.target.value)}  type="email" id="password" name="password" required className="w-full p-2 border  border-gray-400 bg-slate-800  rounded-xl" />
       </div>
 
       
     
       <div className=" text-white flex justify-center mt-20">
-        <button type="submit"  onClick={() => navigate("/Mainheader")}    className="px-4 py-2 bg-red-400 text-white rounded ">Log In</button>
+        <button type="submit"      className="px-4 py-2 bg-red-400 text-white rounded ">Log In</button>
        
       </div>
      </form>
@@ -87,3 +94,5 @@ async function submitForm(e) {
   )
 }
 
+
+//onClick={() => navigate("/Mainheader")}

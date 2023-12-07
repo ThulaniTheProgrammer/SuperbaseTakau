@@ -12,11 +12,11 @@ const initialState= {
 
 //register function
 
-export const managerregister=createAsyncThunk('auth/manager-register',async(user,thunkAPI)=>{
+export const managerregister=createAsyncThunk('auth/manager-register',async(userData,thunkAPI)=>{
 try {
-    return await authService.managerSignup(user)
+    return await authService.managerSignup(userData)
 } catch (error) {
-    const message=error.response.data.msg || error.message || error.toString()
+    const message=(error.response&& error.response.data&&error.response.data.message) || error.message || error.toString()
     return thunkAPI.rejectWithValue(message)
 }
 })

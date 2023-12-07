@@ -7,14 +7,23 @@ function createConfig(signature) {
     let config={
         headers:{
             "Content-Type":"application/json",
-            authorization:`Bearer ${signature}`
+            "authorization":`Bearer ${signature}`
         }
     }
     return config
 }
-const createproduct=async(product,signature)=>{
+const createproduct=async(name, brand,model,sellingPrice,buyingPrice,barcode,quantityBought,quantitySold,year,shelfNumber,signature)=>{
+    let config={
+        headers:{
+            "Content-Type":"application/json",
+            "authorization":`Bearer ${signature}`,
+           
+        },
+        withCredentials: true
+    }
+    console.log(signature);
+const {data}= await axios.post(`${BASE_URL}/create-product`, {name, brand,model,sellingPrice,buyingPrice,barcode,quantityBought,quantitySold,year,shelfNumber},config)
 
-const {data}= await axios.post(`${BASE_URL}/create-product`,product,createConfig(signature))
 return data;
 }
 const updateproduct=async(id,product,signature)=>{
@@ -22,7 +31,7 @@ const updateproduct=async(id,product,signature)=>{
     return data
 }
 const getproducts=async(name,brand,model,year,barcode)=>{
-    const {data}= await axios.get(`${BASE_URL}/get-products?barcode=${barcode}&year=${year}&model=${model}&brand=${brand}&name=${name}`);
+    const {data}= await axios.get(`${BASE_URL}/get-products`);
     return data
 }
 const getproductbyid=async(id)=>{
