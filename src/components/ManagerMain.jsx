@@ -29,6 +29,7 @@ import Manager from '../pages/Users Registration/Manager';
 
 
 
+
 export default function ManagerMain() {
   const colors = ["green","red","yellow"]
   function getRandomNumber() {

@@ -1,99 +1,86 @@
-import React from 'react'
-import { Outlet, Link, Touchable } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
-import { ImQrcode } from 'react-icons/im';
+const TAX_RATE = 0.07;
 
-import { AiOutlineDown } from "react-icons/ai";
-import Product from '../../pages/Products/Product';
+function ccyFormat(num) {
+  return `${num.toFixed(2)}`;
+}
 
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-import { AiOutlineUp } from "react-icons/ai";
-import ManagerMain from '../ManagerMain';
+function priceRow(qty, unit) {
+  return qty * unit;
+}
 
-import { CiCreditCard2 } from "react-icons/ci";
-import { TbReport } from "react-icons/tb";
-import { AiOutlineStock } from "react-icons/ai";
-import { CiSettings } from "react-icons/ci";
-import { FiUsers } from "react-icons/fi";
-import { FaHouse } from "react-icons/fa6";
-import { MdOutlineHouse } from "react-icons/md";
-import { CiShoppingCart } from "react-icons/ci";
-import { LuSaveAll } from "react-icons/lu";
-import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+function createRow(desc, qty, unit) {
+  const price = priceRow(qty, unit);
+  return { desc, qty, unit, price };
+}
 
+function subtotal(items) {
+  return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
+}
 
+const rows = [
+  createRow('Gearbox', 100, 1.15),
+  createRow('Chisel', 10, 45.99),
+  createRow('Rear mirrors', 2, 17.99),
+];
 
-export default function Loyout() {
-  const colors = ["green","red","yellow"]
-  function getRandomNumber() {
-    return Math.floor(Math.random()*colors.length)
-  }
-  const randomNumber= getRandomNumber();
-  console.log(colors[getRandomNumber()]);
-  //colors[randomNumber()];
+const invoiceSubtotal = subtotal(rows);
+const invoiceTaxes = TAX_RATE * invoiceSubtotal;
+const invoiceTotal = invoiceTaxes + invoiceSubtotal;
 
-    let navigate = useNavigate();
+export default function Stock() {
   return (
-  <div className='h-screen  bg-purple-50'>
-    <div className='flex justify-between mt-4 mb-10'>
-<p className='text-3xl mx-6 text-red-500'>Japan Direct</p><div className='flex flex-col'>
- 
-  
-</div>
+    <div>
+    <TableContainer  className="" component={Paper}>
+      <Table sx={{ minWidth: 700 }} >
+        <TableHead>
+          <TableRow >
+            <TableCell align="center" colSpan={3}>
+              Details
+            </TableCell>
+            <TableCell align="right">Price</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Desc</TableCell>
+            <TableCell align="right">Qty.</TableCell>
+            <TableCell align="right">Unit</TableCell>
+            <TableCell align="right">Sum</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow key={row.desc}>
+              <TableCell>{row.desc}</TableCell>
+              <TableCell align="right">{row.qty}</TableCell>
+              <TableCell align="right">{row.unit}</TableCell>
+              <TableCell align="right">{ccyFormat(row.price)}</TableCell>
+            </TableRow>
+          ))}
+          <TableRow>
+            <TableCell rowSpan={3} />
+            <TableCell colSpan={2}>Subtotal</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Tax</TableCell>
+            <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell colSpan={2}>Total</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </TableContainer>
     </div>
-    
-<div className='flex justify-between mr-6 font-semibold'>
-<div className='mx-4 w-0.1'>
-       <ul className='text-black'>
-       
-       <li className='mb-4 flex items-center'>
-          <MdOutlineHouse className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/ManagerMain">Menu</Link>
-          </li>
-
-          <li className='my-4 flex items-center'>
-          <CiCreditCard2 className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/Stock">Orders</Link>
-          </li>
-
-          <li className='my-4 flex items-center'>
-          <TbReport className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/Product">Reports</Link>
-          </li>
-          
-          <li className='my-4 flex items-center'>
-          <AiOutlineStock  className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/Stock">Stock</Link>
-          </li>
-
-          <li className='my-4 flex items-center'>
-          <CiSettings className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/SecondNav">Settings</Link>
-          </li>
-
-          <li className='my-4 flex items-center'>
-          <FiUsers className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/SecondNav">Users</Link>
-          </li>
-          
-         
-        </ul>
-
-       </div>
-<div className='w-full'>
-
-<Product/>
-
-
-
-</div>
-</div>
-
-    </div>   
-
-
-
-  )
-} 
+  );
+          }

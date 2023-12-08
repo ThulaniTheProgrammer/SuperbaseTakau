@@ -46,7 +46,6 @@ export default function Manager() {
             </div>
             
             <Link to="/AddProduct" className='rounded-lg flex items-center bg-pink-400 px-5'>Add Cashier</Link>
-            <Link to="/AddProduct" className='rounded-lg flex items-center bg-pink-400 px-5'>Add Manager</Link>
         </div>
       <DataGrid
         rows={rows}

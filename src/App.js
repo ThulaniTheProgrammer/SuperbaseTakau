@@ -1,5 +1,5 @@
 
-
+import Loyout from './pages/loyout';
 import Mainheader from './components/mainheader';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -14,12 +14,7 @@ import Stock from './components/Tables/Stock';
 import Adminstrator from './pages/Users Registration/Adminstator';
 import Manager from './pages/Users Registration/Manager';
 import AddProduct from './pages/Products/AddProduct';
-import Loyout from './components/loyout';
-import Orders from './components/Tables/Orders';
-import Loyouts from './components/loyouts/loyouts';
-import Administartor from './pages/Users Registration/Adminstator';
-import AdministatorRegistration from './pages/Users Registration/AdministatorRegistration';
-import CashierRegistration from './pages/Users Registration/CashierRegistration';
+
 
 function App() {
   return (
@@ -39,12 +34,7 @@ function App() {
           <Route  path="AddProduct" element={<Product/>}/>
           <Route  path="Adminstrator" element={<Adminstrator/>}/>
           <Route  path="Manager" element={<Manager/>}/>
-          <Route  path="loyout" element={<Loyout/>}/>
-          <Route  path="loyouts" element={<Loyouts/>}/>
-          <Route  path="orders" element={<Orders/>}/>
-          <Route  path="administartor" element={<Administartor/>}/>
-          <Route  path="administatorRegistration" element={<AdministatorRegistration/>}/>
-          <Route  path="cashierRegistration" element={<CashierRegistration/>}/>
+              
       </Routes>
     </BrowserRouter>
   );
