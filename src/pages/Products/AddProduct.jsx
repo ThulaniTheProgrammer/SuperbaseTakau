@@ -37,44 +37,9 @@ export default function AddProduct() {
     }, [user,isError,isSuccess,message,navigate,dispatch])
     */
 
-     function AddProduct() {
-      // ...
-    
-      const submitForm = (event) => {
-        event.preventDefault();
-    
-        // Perform form validation and create a product object
-        const product = {
-          name,
-          brand,
-          model,
-          sellingPrice,
-          buyingPrice,
-          barcode,
-          quantityBought,
-          quantitySold,
-          year,
-          shelfNumber,
-        };
-    
-        // Dispatch the createproduct action with the product object
-        dispatch(createproduct(product))
-          .then(() => {
-            // Product created successfully, navigate to the desired page
-            navigate("/Mainheader");
-          })
-          .catch((error) => {
-            // Handle any errors that occurred during product creation
-            console.error("Error creating product:", error);
-          });
-      };
-    
-
-
   return (
    
     <div className="flex items-center justify-center h-screen">
-      
       {/* Display loading, error, or success messages based on authentication state 
       {isLoading ? (
         <h2>Loading....</h2>
@@ -83,8 +48,6 @@ export default function AddProduct() {
       ) : null}
 */
       }
-      
-
       <form onSubmit={submitForm} className="w-3/4 p-6 bg-slate-100 shadow pb-40 pt-32 rounded-3xl">
         <div className="text-center bold text-black text-2xl">Takau Holdings Register Items</div>
 
@@ -260,5 +223,4 @@ onChange={(e)=>setmodel(e.target.value)}
 
     </div>
   );
-}
 }
