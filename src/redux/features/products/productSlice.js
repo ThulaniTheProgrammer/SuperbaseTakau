@@ -8,9 +8,10 @@ const initialState={
     success:false
 }
 
-export const createproduct=createAsyncThunk('product/create-product',async(name,brand,model,year,barcode,buyingPrice,sellingPrice,quantityBought,quantitySold,signature,thunkAPI)=>{
+export const createproduct=createAsyncThunk('product/create-product',async(name, brand,model,sellingPrice,buyingPrice,barcode,quantityBought,quantitySold,year,signature,thunkAPI)=>{
     try {
-        return await productService.createproduct(name,brand,model,year,barcode,buyingPrice,sellingPrice,quantityBought,quantitySold,signature,signature)
+        console.log(signature);
+        return await productService.createproduct(name, brand,model,sellingPrice,buyingPrice,barcode,quantityBought,quantitySold,year,signature)
     } catch (error) {
         const message= (error.response&& error.response.data&&error.response.data.message) || error.message || error.toString()
     return thunkAPI.rejectWithValue(message)

@@ -6,47 +6,95 @@ import { managerlogin } from '../../redux/features/auth/authSlice';
 import { createproduct } from '../../redux/features/products/productSlice';
 
 export default function AddProduct() {
-  const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
+
+ const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
+
+  const [name, setname] = useState("")
+  const [brand, setbrand] = useState("")
+  const [model, setmodel] = useState("")
+  const [sellingPrice, setSellingPrice] = useState("")
+  const [buyingPrice, setBuyingPrice] = useState("")
+  const [barcode, setBarcode] = useState("")
+  const [quantityBought, setQuantityBought] = useState("")
+  const [quantitySold, setQuantitySold] = useState("")
+  const [year, setYear] = useState("")
+  const [shelfNumber, setShelfNumber] = useState("")
+
+ 
   const signature=user.signature;
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [name, setName] = useState('');
-  const [brand, setBrand] = useState('');
-  const [model, setModel] = useState('');
-  const [year, setYear] = useState('');
-  const [barcode, setBarcode] = useState('');
-  const [buyingPrice, setBuyingPrice] = useState('');
-  const [sellingPrice, setSellingPrice] = useState('');
-  const [quantitySold, setQuantitySold] = useState('');
-  const [quantityBought, setQuantityBought] = useState('');
+  /*
+  useEffect(() => {
+   
+    if (isSuccess||user) {
+    navigate("/Mainheader")
+    }
+   
+    
+  
+    }, [user,isError,isSuccess,message,navigate,dispatch])
+    */
 
-  const submitForm = async (e) => {
+     function AddProduct() {
+      // ...
+    
+      const submitForm = (event) => {
+        event.preventDefault();
+    
+        // Perform form validation and create a product object
+        const product = {
+          name,
+          brand,
+          model,
+          sellingPrice,
+          buyingPrice,
+          barcode,
+          quantityBought,
+          quantitySold,
+          year,
+          shelfNumber,
+        };
+    
+        // Dispatch the createproduct action with the product object
+        dispatch(createproduct(product))
+          .then(() => {
+            // Product created successfully, navigate to the desired page
+            navigate("/Mainheader");
+          })
+          .catch((error) => {
+            // Handle any errors that occurred during product creation
+            console.error("Error creating product:", error);
+          });
+      };
+    
 
-    e.preventDefault();
-
-dispatch(createproduct(name,brand,model,year,barcode,buyingPrice,sellingPrice,quantityBought,quantitySold,signature))
-  };
 
   return (
+   
     <div className="flex items-center justify-center h-screen">
-      {/* Display loading, error, or success messages based on authentication state */}
+      
+      {/* Display loading, error, or success messages based on authentication state 
       {isLoading ? (
         <h2>Loading....</h2>
       ) : isError ? (
         <h2>Error....</h2>
       ) : null}
+*/
+      }
+      
 
       <form onSubmit={submitForm} className="w-3/4 p-6 bg-slate-100 shadow pb-40 pt-32 rounded-3xl">
         <div className="text-center bold text-black text-2xl">Takau Holdings Register Items</div>
 
         <div className="flex">
-          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+        <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
             <label htmlFor="name" className="mb-1 flex items-center text-black">
               Part Name:
             </label>
             <input
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setname(e.target.value)}
               type="text"
               id="name"
               name="name"
@@ -56,10 +104,10 @@ dispatch(createproduct(name,brand,model,year,barcode,buyingPrice,sellingPrice,qu
           </div>
           <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
             <label htmlFor="name" className="mb-1 flex items-center text-black">
-              Brand:
+             Brand:
             </label>
             <input
-              onChange={(e) => setBrand(e.target.value)}
+onChange={(e)=>setbrand(e.target.value)}
               type="text"
               id="name"
               name="name"
@@ -67,15 +115,20 @@ dispatch(createproduct(name,brand,model,year,barcode,buyingPrice,sellingPrice,qu
               className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
             />
           </div>
+         
+         
+        
+        
+
         </div>
 
-        <div className="flex">
-          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+       <div className="flex">
+       <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
             <label htmlFor="name" className="mb-1 flex items-center text-black">
               Model:
             </label>
             <input
-              onChange={(e) => setModel(e.target.value)}
+onChange={(e)=>setmodel(e.target.value)}
               type="text"
               id="name"
               name="name"
@@ -96,12 +149,64 @@ dispatch(createproduct(name,brand,model,year,barcode,buyingPrice,sellingPrice,qu
               className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
             />
           </div>
-
-       
         </div>
 
-        <div className="flex">
+<div className="flex">
+<div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+            <label htmlFor="name" className="mb-1 flex items-center text-black">
+          Buying Price:
+            </label>
+            <input
+              onChange={(e) => setBuyingPrice(e.target.value)}
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
+            />
+          </div>
           <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+            <label htmlFor="name" className="mb-1 flex items-center text-black">
+           Selling Price:
+            </label>
+            <input
+              onChange={(e) => setSellingPrice(e.target.value)}
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
+            />
+          </div>
+          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+            <label htmlFor="name" className="mb-1 flex items-center text-black">
+           Quantity Bought:
+            </label>
+            <input
+              onChange={(e) => setQuantityBought(e.target.value)}
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
+            />
+          </div>
+          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+            <label htmlFor="name" className="mb-1 flex items-center text-black">
+          Quantity Sold:
+            </label>
+            <input
+              onChange={(e) => setQuantitySold(e.target.value)}
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
+            />
+          </div>
+</div>
+<div className="flex">
+        <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
             <label htmlFor="name" className="mb-1 flex items-center text-black">
               Barcode:
             </label>
@@ -114,12 +219,14 @@ dispatch(createproduct(name,brand,model,year,barcode,buyingPrice,sellingPrice,qu
               className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
             />
           </div>
-          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+        <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
             <label htmlFor="name" className="mb-1 flex items-center text-black">
-              Buying Price:
+
+              Shelf Number:
             </label>
             <input
-              onChange={(e) => setBuyingPrice(e.target.value)}
+              onChange={(e) => setShelfNumber(e.target.value)}
+
               type="text"
               id="name"
               name="name"
@@ -127,54 +234,19 @@ dispatch(createproduct(name,brand,model,year,barcode,buyingPrice,sellingPrice,qu
               className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
             />
           </div>
-
-          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
-            <label htmlFor="name" className="mb-1 flex items-center text-black">
-              Selling Price:
-            </label>
-            <input
-              onChange={(e) => setSellingPrice(e.target.value)}
-              type="text"
-              id="name"
-              name="name"
-              required
-              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
-            />
-          </div>
-
-          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
-            <label htmlFor="name" className="mb-1 flex items-center text-black">
-              Quantity Bought:
-            </label>
-            <input
-              onChange={(e) => setQuantityBought(e.target.value)}
-              type="text"
-              id="name"
-              name="name"
-              required
-              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
-            />
-          </div>
-
-          <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
-            <label htmlFor="name" className="mb-1 flex items-center text-black">
-              Quantity Sold:
-            </label>
-            <input
-              onChange={(e) => setQuantitySold(e.target.value)}
-              type="text"
-              id="name"
-              name="name"
-              required
-              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
-            />
+          
+        <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+         <button>
+          Add Product
+         </button>
           </div>
 
        
-        </div>
-
-
       
+         
+        
+       
+        </div>
 
         
 
@@ -188,4 +260,5 @@ dispatch(createproduct(name,brand,model,year,barcode,buyingPrice,sellingPrice,qu
 
     </div>
   );
+}
 }

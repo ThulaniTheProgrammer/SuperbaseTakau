@@ -8,8 +8,11 @@ import WelcomeManager from './WelcomeManager';
 
 export default function SighnUp() {
   const {user,isLoading,isError,isSuccess,message}= useSelector((state)=>state.auth);
+  console.log(user,isLoading,isError,isSuccess,message);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+
 const [name, setname] = useState("");
 const [surname, setsurname] = useState("");
 const [phone, setphone] = useState("");
@@ -18,22 +21,23 @@ const [email, setemail] = useState("")
 async function submitForm(e) {
   e.preventDefault()
 
-    const userData={email,password,name,phone}
+
+    const userData={name,surname,phone,email,password}
+
     dispatch(managerregister(userData))
   
 
   
    
   }
+  console.log(name,surname,phone,email,password);
   useEffect(() => {
-    if (isError) {
-      alert(message)
-    }
+   
     if (isSuccess||user) {
       navigate("/Mainheader")
     }
     
-    dispatch(reset())
+    //dispatch(reset())
     }, [user,isError,isSuccess,message,navigate,dispatch])
     
    // onClick={() => navigate("/Mainheader")}  
@@ -59,6 +63,12 @@ async function submitForm(e) {
     <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
         <label htmlFor="password" className="mb-1 flex items-center text-white ">Name:</label>
         <input    onChange={(e)=>setname(e.target.value)}  type="text" id="password" name="password" required className="w-full p-2 border border-gray-400 bg-slate-800  rounded-xl" />
+
+      </div>
+    <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+        <label htmlFor="password" className="mb-1 flex items-center text-white ">Surname:</label>
+        <input    onChange={(e)=>setsurname(e.target.value)}  type="text" id="password" name="password" required className="w-full p-2 border border-gray-400 bg-slate-800  rounded-xl" />
+
       </div>
 
 
@@ -76,7 +86,9 @@ async function submitForm(e) {
 
     <div className="flex flex-col flex-grow mt-2 mb-2">
         <label htmlFor="password" className="mb-1 flex items-center text-white ">Email:</label>
-        <input    onChange={(e)=>setemail(e.target.value)}  type="text" id="password" name="password" required className="w-full p-2 border  border-gray-400 bg-slate-800  rounded-xl" />
+
+        <input    onChange={(e)=>setemail(e.target.value)}  type="email" id="password" name="password" required className="w-full p-2 border  border-gray-400 bg-slate-800  rounded-xl" />
+
       </div>
 
       
@@ -90,3 +102,5 @@ async function submitForm(e) {
   )
 }
 
+
+//onClick={() => navigate("/Mainheader")}

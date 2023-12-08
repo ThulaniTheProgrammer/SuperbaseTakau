@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Link } from 'react-router-dom';
+import { useEffect,useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
-
-import { useEffect } from 'react';
 import { getproducts } from '../../redux/features/products/productSlice';
 
 const columns = [
@@ -40,22 +39,20 @@ const rows = [
 const headerClassName = 'font-bold';
 
 export default function Product() {
-  const dispatch= useDispatch()
-  const products=useSelector((state)=>state.products);
-  const {loading,data,error}=products
-  let rows= data;
-  console.log('====================================');
-  console.log(rows);
-  console.log('====================================');
-  console.log('====================================');
-  //console.log(products);
-  console.log('====================================');
-  useEffect(() => {
-    
-  dispatch(getproducts())
-  
-  }, [])
-  
+  const [name, setname] = useState("Gear Box");
+  const {data,error,loading,success}= useSelector((state)=>state.products);
+
+  const [brand, setbrand] = useState("Toyota Aqua");
+  const [model, setmodel] = useState("V1");
+  const [year, setyear] = useState("2012");
+  const [barcode, setbarcode] = useState("1234587859403as127");
+const dispatch= useDispatch();
+
+
+useEffect(()=>{
+dispatch(getproducts(name,brand,model,year,barcode))
+},[])
+ 
   return (
 
     <div className="h-400 w-full">
@@ -63,19 +60,25 @@ export default function Product() {
             <Link to="/AddProduct" className='rounded-lg flex items-center text-white py-2  bg-pink-400 px-5'>Add Products</Link>
         </div>
         {
-          loading ? <h2>loading</h2> : error ? <h2>Error</h2> : <DataGrid
-          rows={rows}
-        
-          getRowId={(row) =>  row._id }
-          pageSize={5}
-          columns={columns.map((column) => ({
-            ...column,
-            headerClassName, // Apply the headerClassName to each column
-          }))}
-          checkboxSelection
-        />
+          /*
+          loading ? <h2>
+            Loading.....
+          </h2> :
+          error ? <h2>Error....</h2>:
+          data.map((item)=>{
+
+          })
+          */
         }
-      
+      <DataGrid
+        rows={rows}
+        columns={columns.map((column) => ({
+          ...column,
+          headerClassName, // Apply the headerClassName to each column
+        }))}
+        pageSize={5}
+        checkboxSelection
+      />
     </div>
   );
 }
