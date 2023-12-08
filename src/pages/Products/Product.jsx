@@ -82,8 +82,12 @@ dispatch(getproducts(name,brand,model,year,barcode))
   return (
 
     <div className="h-400 w-full">
-        <div className='flex justify-end mb-4 mx-4'>
-            <Link to="/AddProduct" className='rounded-lg flex items-center text-white py-2  bg-pink-400 px-5'>Add Products</Link>
+        <div className='flex justify-between mt-4 mb-4 mx-4'>
+            <div className='text-2xl'>
+               Takau Holdings 
+            </div>
+            
+            <Link to="/AddProduct" className='rounded-lg flex items-center bg-pink-400 px-5'>Add Products</Link>
         </div>
         {
 <<<<<<< HEAD

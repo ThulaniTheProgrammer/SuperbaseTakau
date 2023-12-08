@@ -25,7 +25,6 @@ import { MdOutlineHouse } from "react-icons/md";
 import { CiShoppingCart } from "react-icons/ci";
 import { LuSaveAll } from "react-icons/lu";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
-import Manager from '../pages/Users Registration/Manager';
 
 
 
@@ -63,17 +62,17 @@ export default function ManagerMain() {
 
           <li className='my-4 flex items-center'>
           <CiCreditCard2 className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/Stock">Orders</Link>
+            <Link to="/SecondNav">Orders</Link>
           </li>
 
           <li className='my-4 flex items-center'>
           <TbReport className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/Product">Reports</Link>
+            <Link to="/SecondNav">Reports</Link>
           </li>
           
           <li className='my-4 flex items-center'>
           <AiOutlineStock  className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/Stock">Stock</Link>
+            <Link to="/SecondNav">Stock</Link>
           </li>
 
           <li className='my-4 flex items-center'>
@@ -83,7 +82,7 @@ export default function ManagerMain() {
 
           <li className='my-4 flex items-center'>
           <FiUsers className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/Manager">Users</Link>
+            <Link to="/SecondNav">Users</Link>
           </li>
           
          
@@ -106,7 +105,7 @@ export default function ManagerMain() {
  <div className='text-center'>
     <p>Total Sales Made Today</p>
     <p>$450.00</p>
-    <p className='text-gray-500  font-thin text-sm '>Previous transcation pertaining the last payment may not be included</p>
+    <p className='text-black text-sm '>Previous transcation pertaining the last payment may not be included</p>
     </div>
  <div className='flex justify-between mx-4 mt-10'>
  <div className=''>
@@ -142,7 +141,7 @@ export default function ManagerMain() {
 </div>
 </div>
 </div>
-
+<Stock />
     </div>   
 
 
