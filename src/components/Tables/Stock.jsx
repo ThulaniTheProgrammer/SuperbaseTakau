@@ -84,7 +84,11 @@ export default function Stock() {
     </div>
   );
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> parent of 4097a7d (Cashier Registration and Administrator added)
 =======
 }
 >>>>>>> parent of 4097a7d (Cashier Registration and Administrator added)
