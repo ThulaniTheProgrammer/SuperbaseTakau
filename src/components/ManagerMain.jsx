@@ -28,7 +28,6 @@ import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 
 
 
-
 export default function ManagerMain() {
   const colors = ["green","red","yellow"]
   function getRandomNumber() {
