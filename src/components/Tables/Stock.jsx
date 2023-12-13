@@ -83,8 +83,4 @@ export default function Stock() {
     </TableContainer>
     </div>
   );
-<<<<<<< HEAD
-          }
-=======
 }
->>>>>>> parent of 4097a7d (Cashier Registration and Administrator added)
