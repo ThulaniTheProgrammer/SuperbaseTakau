@@ -28,6 +28,7 @@ import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 
 
 
+
 export default function ManagerMain() {
   const colors = ["green","red","yellow"]
   function getRandomNumber() {
@@ -56,22 +57,22 @@ export default function ManagerMain() {
        
        <li className='mb-4 flex items-center'>
           <MdOutlineHouse className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/SecondNav">Menu</Link>
+            <Link to="/">Menu</Link>
           </li>
 
           <li className='my-4 flex items-center'>
           <CiCreditCard2 className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/SecondNav">Orders</Link>
+            <Link to="/Product">Orders</Link>
           </li>
 
           <li className='my-4 flex items-center'>
           <TbReport className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/SecondNav">Reports</Link>
+            <Link to="/Product">Reports</Link>
           </li>
           
           <li className='my-4 flex items-center'>
           <AiOutlineStock  className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/SecondNav">Stock</Link>
+            <Link to="/Product">Stock</Link>
           </li>
 
           <li className='my-4 flex items-center'>
@@ -81,7 +82,7 @@ export default function ManagerMain() {
 
           <li className='my-4 flex items-center'>
           <FiUsers className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/SecondNav">Users</Link>
+            <Link to="/Administrator">Users</Link>
           </li>
           
          

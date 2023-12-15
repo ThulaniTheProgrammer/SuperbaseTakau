@@ -120,9 +120,9 @@ export default function Mainheader() {
    </div>
  
  
- <div class="flex flex-wrap h-80 justify-center ">
+ <div class="flex fixed top-0 left-0 flex-wrap h-80 justify-center ">
   
- <CarName carname="Toyota" />
+ <CarName carname="Toyot" />
  <CarName carname="mazda"/>
  <CarName carname="Nissan"/>
  <CarName carname="Honda fit"/>
