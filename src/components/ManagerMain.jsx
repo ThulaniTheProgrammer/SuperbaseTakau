@@ -82,7 +82,7 @@ export default function ManagerMain() {
 
           <li className='my-4 flex items-center'>
           <FiUsers className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/Administrator">Users</Link>
+            <Link to="/Adminstrator">Users</Link>
           </li>
           
          
