@@ -57,7 +57,8 @@ function submit(e) {
       ) : null}
 */
       }
-      <form onSubmit={submit} className="w-3/4 p-6 bg-slate-100 shadow pb-40 pt-32 rounded-3xl">
+      <form  className="w-3/4 p-6 bg-slate-100 shadow pb-40 pt-32 rounded-3xl">
+
         <div className="text-center bold text-black text-2xl">Takau Holdings Register Items</div>
 
 {

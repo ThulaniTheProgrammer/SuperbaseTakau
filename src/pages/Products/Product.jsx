@@ -2,6 +2,7 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Link } from 'react-router-dom';
 
+
 import { useEffect,useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 
@@ -43,6 +44,7 @@ const rows = [
 const headerClassName = 'font-bold';
 
 export default function Product() {
+
   const [name, setname] = useState("Gear Box");
   //const {data,error,loading,success}= useSelector((state)=>state.products);
 
@@ -58,6 +60,7 @@ useEffect(()=>{
 //dispatch(getproducts(name,brand,model,year,barcode))
 },[])
  
+
   return (
 
     <div className="h-400 w-full">
@@ -69,6 +72,7 @@ useEffect(()=>{
             <Link to="/AddProduct" className='rounded-lg flex items-center bg-pink-400 px-5'>Add Products</Link>
         </div>
         {
+
           /*
           loading ? <h2>
             Loading.....
@@ -89,6 +93,7 @@ useEffect(()=>{
         checkboxSelection
         getRowId={(row) => row._id}
       />
+
     </div>
   );
 }

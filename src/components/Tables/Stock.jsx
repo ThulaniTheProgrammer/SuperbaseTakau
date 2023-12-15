@@ -1,43 +1,8 @@
-import React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-
-const TAX_RATE = 0.07;
-
-function ccyFormat(num) {
-  return `${num.toFixed(2)}`;
-}
-
-function priceRow(qty, unit) {
-  return qty * unit;
-}
-
-function createRow(desc, qty, unit) {
-  const price = priceRow(qty, unit);
-  return { desc, qty, unit, price };
-}
-
-function subtotal(items) {
-  return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
-}
-
-const rows = [
-  createRow('Gearbox', 100, 1.15),
-  createRow('Chisel', 10, 45.99),
-  createRow('Rear mirrors', 2, 17.99),
-];
-
-const invoiceSubtotal = subtotal(rows);
-const invoiceTaxes = TAX_RATE * invoiceSubtotal;
-const invoiceTotal = invoiceTaxes + invoiceSubtotal;
+import React from 'react'
 
 export default function Stock() {
   return (
+<<<<<<< HEAD
     <div>
     <TableContainer  className="" component={Paper}>
       <Table sx={{ minWidth: 700 }} >
@@ -83,3 +48,8 @@ export default function Stock() {
     </TableContainer>
     </div>
   );}
+=======
+    <div>Stock</div>
+  )
+}
+>>>>>>> 1678c35be3f4667db4b6f040f807147659ef2c9c

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CarName from '../components/carName';
 import { adminlogin, managerlogin, reset } from '../redux/features/auth/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import ManagerMain from '../components/ManagerMain';
 
 
 
@@ -64,7 +65,7 @@ async function submitForm(e) {
         <input    onChange={(e)=>setpassword(e.target.value)}  type="password" id="password" name="password" required className="w-3/4 p-2 border border-black rounded" />
       </div>
       <div className=" text-white flex justify-center">
-        <button type="submit"      className="px-4 py-2 bg-red-400 text-white rounded ">Log In</button>
+        <button type="submit"  onClick={() => navigate("/ManagerMain")}       className="px-4 py-2 bg-red-400 text-white rounded ">Log In</button>
       </div>
      </form>
   </div>
