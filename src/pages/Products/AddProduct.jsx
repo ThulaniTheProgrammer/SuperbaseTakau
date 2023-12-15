@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { managerlogin } from '../../redux/features/auth/authSlice';
-import { createproduct } from '../../redux/features/products/productSlice';
 
 export default function AddProduct() {
 
- const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
+ //const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
+ //const products= useSelector((state)=>state.products);
+ //const {loading,error,data,success}=products
+ //console.log(loading,error,data,success);
 
   const [name, setname] = useState("")
   const [brand, setbrand] = useState("")
@@ -19,28 +20,36 @@ export default function AddProduct() {
   const [quantitySold, setQuantitySold] = useState("")
   const [year, setYear] = useState("")
   const [shelfNumber, setShelfNumber] = useState("")
+  const [image, setImage] = useState({})
 
  
   const signature=user.signature;
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+ // const dispatch = useDispatch();
 
-  /*
-  useEffect(() => {
-   
-    if (isSuccess||user) {
-    navigate("/Mainheader")
-    }
-   
-    
+
+
+
   
-    }, [user,isError,isSuccess,message,navigate,dispatch])
+console.log(image);
+function submit(e) {
+  e.preventDefault()
+  const data= { name, brand,model,sellingPrice,buyingPrice,barcode,quantityBought,quantitySold,year,shelfNumber,signature,image}
+  //dispatch(createproduct(data))
+  /*
+  if (success) {
+    navigate("/Product")
+    dispatch(reset())
+    }
     */
+}
 
   return (
    
     <div className="flex items-center justify-center h-screen">
-      {/* Display loading, error, or success messages based on authentication state 
+      {
+      /* 
+      Display loading, error, or success messages based on authentication state 
       {isLoading ? (
         <h2>Loading....</h2>
       ) : isError ? (
@@ -48,9 +57,19 @@ export default function AddProduct() {
       ) : null}
 */
       }
-      <form onSubmit={submitForm} className="w-3/4 p-6 bg-slate-100 shadow pb-40 pt-32 rounded-3xl">
+      <form onSubmit={submit} className="w-3/4 p-6 bg-slate-100 shadow pb-40 pt-32 rounded-3xl">
         <div className="text-center bold text-black text-2xl">Takau Holdings Register Items</div>
 
+{
+  /*
+  loading ? <h2>
+    Loading .......
+  </h2> :
+  error ? <h2>
+    Error...
+  </h2> :null
+*/
+}
         <div className="flex">
         <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
             <label htmlFor="name" className="mb-1 flex items-center text-black">
@@ -191,6 +210,21 @@ onChange={(e)=>setmodel(e.target.value)}
               onChange={(e) => setShelfNumber(e.target.value)}
 
               type="text"
+              id="name"
+              name="name"
+              required
+              className="w-full p-2 border border-gray-400 bg-slate-100 rounded-xl"
+            />
+          </div>
+        <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
+            <label htmlFor="name" className="mb-1 flex items-center text-black">
+
+              Image:
+            </label>
+            <input
+                  onChange={(e)=>setImage(e.target.files[0])}
+
+              type="file"
               id="name"
               name="name"
               required
