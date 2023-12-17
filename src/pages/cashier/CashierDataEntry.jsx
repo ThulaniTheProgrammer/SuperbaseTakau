@@ -15,6 +15,7 @@ import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import Receipts from '../../components/receipts';
 import FinalReceipt from '../../finalReceipt';
 import ManagerMain from '../../components/ManagerMain';
+import Stock from '../../components/Tables/Stock';
 
 let productList = [];
 
@@ -188,7 +189,7 @@ export default function CashierDataEntry() {
 
           <li className='my-4 flex items-center'>
           <CiCreditCard2 className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/Product">Orders</Link>
+            <Link to="/Orders">Orders</Link>
           </li>
 
           <li className='my-4 flex items-center'>
@@ -198,12 +199,12 @@ export default function CashierDataEntry() {
           
           <li className='my-4 flex items-center'>
           <AiOutlineStock  className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/Product">Stock</Link>
+            <Link to="/Stock">Stock</Link>
           </li>
 
           <li className='my-4 flex items-center'>
           <CiSettings className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/SecondNav">Settings</Link>
+            <Link to="/">Settings</Link>
           </li>
 
           <li className='my-4 flex items-center'>
