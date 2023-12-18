@@ -1,6 +1,7 @@
 import axios, { Axios } from 'axios'
 
 import { CASHIER_DETAILS_FAIL, CASHIER_DETAILS_REQUEST, CASHIER_DETAILS_SUCCESS, CASHIER_REGISTER_FAIL, CASHIER_REGISTER_REQUEST, CASHIER_REGISTER_SUCCESS, CASHIER_SIGNIN_FAIL, CASHIER_SIGNIN_REQUEST, CASHIER_SIGNIN_SUCCESS, CASHIER_SIGNOUT } from '../constants/cashier';
+import { baseUrl } from './baseUrl';
 export const cashiersignin= (email,password)=>async(dispatch)=>{
     
     
@@ -25,13 +26,17 @@ export const cashiersignin= (email,password)=>async(dispatch)=>{
 
 
 
-export const cashierregister=(email,phone,password,name)=>async(dispatch,getState)=>{
+export const cashierregister=(email,phone,password,name,surname)=>async(dispatch,getState)=>{
     const {userSignin:{userInfo}}=getState()
-    dispatch({type:CASHIER_REGISTER_REQUEST,payload:{email,phone,password,name}})
+    let info={email,phone,password,name}
+    dispatch({type:CASHIER_REGISTER_REQUEST,payload:info})
+ 
 try {
-    const {data}=await axios.post(`http://localhost:5000/api/v1/register`,{email,phone,password,name},{
+    
+    const {data}=await axios.post(`${baseUrl}till-operator/signup`,{email,phone,password,name,surname},{
         headers:{
-            Authorization:`Bearer ${userInfo.signature}`
+            "Authorization":`Bearer ${userInfo.signature}`,
+          
         }
     })
 
@@ -39,11 +44,12 @@ dispatch({type:CASHIER_REGISTER_SUCCESS,payload:data})
 
 
 } catch (error) {
+    const message=  error.response&& error.response.data.message
+    ? error.response.data.message
+    : error.message
     dispatch({
         type:CASHIER_REGISTER_FAIL,
-    payload:error.response &&
-    error.response.data.message?error.response.data.message
-    :error.message
+    payload:message
     })
 }
 }
@@ -68,7 +74,7 @@ export const cashierdetails=()=>async (dispatch,getState)=>{
   
 
     try {
-       const {data}=await axios.get(`http://localhost:5000/api/v1/me/${userId}`,{
+       const {data}=await axios.get(`http://localhost:5000/api/v1/me/`,{
         headers:{  
            
             Authorization:`Bearer ${cashierInfo.token}`

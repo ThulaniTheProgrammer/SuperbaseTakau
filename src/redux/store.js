@@ -4,7 +4,7 @@ import { createProductReducer, deleteProductReducer, getProductReducer, getProdu
 import { createSalesReducer, deleteSalesReducer, getSalesReducer, updateSalesReducer } from './reducers/salesReducer';
 //import { deleteOrchardSale } from '../../../Cuetech-Server-main/Controllers/Operations/OrchardSales';
 //import { getOrchardExpense, getOrchardExpenses } from '../../../Cuetech-Server-main/Controllers/Operations/OchardExpense';
-import {UserDetailsReducer, userRegisterReducer, userSigninReducer} from './reducers/userReducer'
+import {GetAdminsReducer, GetCashiersReducer, UserDetailsReducer, userRegisterReducer, userSigninReducer} from './reducers/userReducer'
 import { AdminDetailsReducer, AdminRegisterReducer, AdminSigninReducer } from './reducers/adminReducer';
 import { CashierDetailsReducer, CashierRegisterReducer, CashierSigninReducer } from './reducers/cashierReducer';
 
@@ -30,9 +30,11 @@ const initialState={
     adminSignin:AdminSigninReducer,
     adminRegister:AdminRegisterReducer,
     adminDetails:AdminDetailsReducer,
+    getAdmins:GetAdminsReducer,
+    getCashiers:GetCashiersReducer,
 cashierSignin:CashierSigninReducer,
-    cashierRegister:CashierRegisterReducer,
-    cashierDetails:CashierDetailsReducer,
+cashierRegister:CashierRegisterReducer,
+cashierDetails:CashierDetailsReducer,
     getSales:getSalesReducer,
     createSale:createSalesReducer,
     deleteSale:deleteSalesReducer,

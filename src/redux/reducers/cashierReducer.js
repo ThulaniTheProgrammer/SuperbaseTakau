@@ -20,17 +20,18 @@ export const CashierRegisterReducer=(state={},action)=>{
     switch (action.type) {
         case CASHIER_REGISTER_REQUEST:
             return {loading:true}
+          case CASHIER_REGISTER_SUCCESS: 
           
-    case  CASHIER_REGISTER_SUCCESS:
-        return {loading:false,cashierInfo:action.payload};
-        case  CASHIER_REGISTER_FAIL:
-            return {loading:false,error:action.payload};
-
-         
-        default: return state
-           ;
+            return {loading:false,cashierInfo:action.payload}
+          
+    case CASHIER_REGISTER_FAIL:
+        return {loading:false,error:action.payload}
+        default:
+            return state;
     }
 }
+
+
 
 export const CashierDetailsReducer=(state={loading:true},action)=>{
     switch (action.type) {

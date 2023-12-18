@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getadmins } from '../../redux/actions/userActions';
+import { getadmins, getcashiers } from '../../redux/actions/userActions';
 import { useEffect } from 'react';
 
 
@@ -27,14 +27,14 @@ const columns = [
 
 const headerClassName = 'font-bold';
 
-export default function Adminstrator() {
-  const admins= useSelector((state)=>state.getAdmins);
+export default function Cashier() {
+  const cashiers= useSelector((state)=>state.getCashiers);
   const dispatch= useDispatch()
-  const {loading,error,data}= admins
+  const {loading,error,data}= cashiers
 
 let rows= data
  useEffect(()=>{
-dispatch(getadmins())
+dispatch(getcashiers())
   },[])
 
   return (
@@ -43,11 +43,11 @@ dispatch(getadmins())
     <div className="h-400 w-full">
         <div className='flex justify-between mt-4 mb-4 mx-4'>
             <div className='text-2xl text-red-500'>
-               Takau Holdings  Redistered Adminstrators
+               Takau Holdings  Registered Cashiers
             </div>
             
             
-            <Link to="/AddAdministrator" className='rounded-lg flex font-bold items-center text-white bg-pink-400 px-5'>Add Admistrator</Link>
+           
             <Link to="/AddCashier" className='rounded-lg flex font-bold items-center text-white bg-pink-400 px-5'>Add Cashier</Link>
         </div>
         {

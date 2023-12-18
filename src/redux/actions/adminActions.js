@@ -1,6 +1,7 @@
 import axios, { Axios } from 'axios'
 
 import { ADMIN_DETAILS_FAIL, ADMIN_DETAILS_REQUEST, ADMIN_DETAILS_SUCCESS, ADMIN_REGISTER_FAIL, ADMIN_REGISTER_REQUEST, ADMIN_REGISTER_SUCCESS, ADMIN_SIGNIN_FAIL, ADMIN_SIGNIN_REQUEST, ADMIN_SIGNIN_SUCCESS, ADMIN_SIGNOUT } from '../constants/admin';
+import { baseUrl } from './baseUrl';
 export const adminsignin= (email,password)=>async(dispatch)=>{
     
     
@@ -29,7 +30,7 @@ export const adminregister=(email,phone,password,name)=>async(dispatch,getState)
     const {userSignin:{userInfo}}=getState()
     dispatch({type:ADMIN_REGISTER_REQUEST,payload:{email,phone,password,name}})
 try {
-    const {data}=await axios.post(`http://localhost:5000/api/v1/register`,{email,phone,password,name},{
+    const {data}=await axios.post(`${baseUrl}admin/signup`,{email,phone,password,name},{
         headers:{
             Authorization:`Bearer ${userInfo.signature}`
         }
@@ -47,6 +48,8 @@ dispatch({type:ADMIN_REGISTER_SUCCESS,payload:data})
     })
 }
 }
+
+
 
 export const adminsignout=()=>(dispatch)=>{
     localStorage.removeItem('adminInfo')
@@ -68,7 +71,7 @@ export const admindetails=()=>async (dispatch,getState)=>{
   
 
     try {
-       const {data}=await axios.get(`http://localhost:5000/api/v1/me/${userId}`,{
+       const {data}=await axios.get(`http://localhost:5000/api/v1/me/`,{
         headers:{  
            
             Authorization:`Bearer ${adminInfo.token}`

@@ -30,11 +30,11 @@ async function submitForm(e) {
   }
 
   useEffect(() => {
-    /*
-    if (isSuccess||user) {
-      navigate("/Mainheader")
+    
+    if (userInfo) {
+      navigate("/ManagerMain")
     }
- */
+
     }, [navigate,dispatch])
     
    // onClick={() => navigate("/Mainheader")}  

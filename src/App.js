@@ -16,6 +16,9 @@ import Adminstrator from './pages/Users Registration/Adminstator';
 import Manager from './pages/Users Registration/Manager';
 import AddProduct from './pages/Products/AddProduct';
 import Mainheader from './pages/mainheader';
+import AddAdministrator from './pages/Users Registration/AddAdministrator';
+import AddCashier from './pages/Users Registration/AddCashier';
+import Cashier from './pages/Users Registration/Cashier';
 //import CashierMain from './components/CashierMain';
 //import AddAdministrator from './pages/Users Registration/AddAdministrator';
 //import AddManager from './pages/Users Registration/AddManager';
@@ -41,7 +44,10 @@ function App() {
           <Route path="Mainheader" element={< Mainheader/>} />
           <Route  path="AddProduct" element={<Product/>}/>
           <Route  path="Adminstrator" element={<Adminstrator/>}/>
+          <Route  path="Cashier" element={<Cashier/>}/>
           <Route  path="Manager" element={<Manager/>}/>
+          <Route path="AddAdministrator" element={<AddAdministrator />} />
+          <Route path="AddCashier" element={<AddCashier />} />
          
           
       </Routes>
