@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { useEffect,useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
+import { getproducts } from '../../redux/actions/productsActions';
 
 
 
@@ -46,7 +47,9 @@ const headerClassName = 'font-bold';
 export default function Product() {
 
   const [name, setname] = useState("Gear Box");
-  //const {data,error,loading,success}= useSelector((state)=>state.products);
+const {data,error,loading,success}= useSelector((state)=>state.getProducts);
+const dispatch=useDispatch()
+console.log(data);
 
   const [brand, setbrand] = useState("Toyota Aqua");
   const [model, setmodel] = useState("V1");
@@ -54,10 +57,10 @@ export default function Product() {
   const [barcode, setbarcode] = useState("1234587859403as127");
 //const dispatch= useDispatch();
 
-let rows= data;
+let rows=data;
 console.log(rows);
 useEffect(()=>{
-//dispatch(getproducts(name,brand,model,year,barcode))
+dispatch(getproducts())
 },[])
  
 
@@ -73,26 +76,24 @@ useEffect(()=>{
         </div>
         {
 
-          /*
-          loading ? <h2>
+      
+             loading ? <h2>
             Loading.....
           </h2> :
           error ? <h2>Error....</h2>:
-          data.map((item)=>{
-
-          })
-          */
+          <DataGrid
+          rows={rows}
+          columns={columns.map((column) => ({
+            ...column,
+            headerClassName, // Apply the headerClassName to each column
+          }))}
+          pageSize={5}
+          checkboxSelection
+          getRowId={(row) => row._id}
+        />
+       
         }
-      <DataGrid
-        rows={rows}
-        columns={columns.map((column) => ({
-          ...column,
-          headerClassName, // Apply the headerClassName to each column
-        }))}
-        pageSize={5}
-        checkboxSelection
-        getRowId={(row) => row._id}
-      />
+    
 
     </div>
   );

@@ -1,15 +1,16 @@
 import React from 'react'
 import { Outlet, Link, Touchable } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import CarName from './carName';
-import Receipts from './receipts';
+
+import Receipts from '../components/receipts';
 import FinalReceipt from '../finalReceipt';
 import { ImQrcode } from 'react-icons/im';
-import Cart from './cart';
-import SearchComponent from './searchComponet';
+import Cart from '../components/cart';
+import SearchComponent from '../components/searchComponet';
 import { AiOutlineDown } from "react-icons/ai";
 import ManagerMain from './ManagerMain';
 import Product from '../pages/Products/Product';
+import CarName from '../components/carName';
 
 
 
@@ -121,8 +122,8 @@ export default function Mainheader() {
  
  
  <div class="flex fixed top-0 left-0 flex-wrap h-80 justify-center ">
-  
- <CarName carname="Toyot" />
+  {
+    /** <CarName carname="Toyot" />
  <CarName carname="mazda"/>
  <CarName carname="Nissan"/>
  <CarName carname="Honda fit"/>
@@ -130,12 +131,15 @@ export default function Mainheader() {
  <CarName carname="Isuzu"/>
  <CarName carname="Rav 4"/>
  <CarName carname="Misthubishi"/>
- <CarName carname="Ford"/>
+ <CarName carname="Ford"/> */
+  }
+
 
   
 
   <div class="border border-slate-400 ml-16   w-3/4"></div>
-<Cart partname="Toyota Vits 2003 Engine" colorname={colors[getRandomNumber()]}/>
+  {
+    /**<Cart partname="Toyota Vits 2003 Engine" colorname={colors[getRandomNumber()]}/>
 <Cart partname="Toyota Steering" colorname={colors[getRandomNumber()]}/>
 <Cart partname="Mazda Gearbox" colorname={colors[getRandomNumber()]} />
 <Cart partname="Toyota Engine" colorname={colors[getRandomNumber()]}/>
@@ -143,7 +147,9 @@ export default function Mainheader() {
 <Cart partname="Toyota Engine" colorname={colors[getRandomNumber()]}/>
 <Cart partname="Toyota Engine" colorname={colors[getRandomNumber()]}/>
 <Cart partname="Toyota Engine" colorname={colors[getRandomNumber()]}/>
-<Cart partname="Toyota Engine" colorname={colors[getRandomNumber()]}/>
+<Cart partname="Toyota Engine" colorname={colors[getRandomNumber()]}/> */
+  }
+
 
   
   

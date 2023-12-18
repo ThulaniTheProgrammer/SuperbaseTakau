@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import CarName from '../components/carName';
-import { managerlogin, managerregister, reset } from '../redux/features/auth/authSlice';
+
 import { useDispatch, useSelector } from 'react-redux';
 import WelcomeAdmin from './WelcomeAdmin';
 import WelcomeManager from './WelcomeManager';
+import { register } from '../redux/actions/userActions';
 
 export default function SighnUp() {
-  const {user,isLoading,isError,isSuccess,message}= useSelector((state)=>state.auth);
-  console.log(user,isLoading,isError,isSuccess,message);
+  const userSignin= useSelector(state=>state.userSignin);
+  const {userInfo,loading,success,error}= userSignin
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -22,38 +23,40 @@ async function submitForm(e) {
   e.preventDefault()
 
 
-    const userData={name,surname,phone,email,password}
 
-    dispatch(managerregister(userData))
+    dispatch(register(name,surname,phone,email,password))
   
 
   
    
   }
-  console.log(name,surname,phone,email,password);
+ 
+  
   useEffect(() => {
    
-    if (isSuccess||user) {
+    if (userInfo) {
       navigate("/Mainheader")
     }
     
     //dispatch(reset())
-    }, [user,isError,isSuccess,message,navigate,dispatch])
+    }, [userInfo,navigate,dispatch])
     
    // onClick={() => navigate("/Mainheader")}  
+   
 
   return (
     <div className="flex items-center justify-center h-screen ">
 
      {
-      ///This is subject to change.I have done this as an example of how do it with Redux you can do it in the way you are comfortable with.
-      isLoading ? <h2>
+   
+    loading ? <h2>
         Loading....
       </h2> :
-      isError ? <h2>
+      error ? <h2>
         Error....
       </h2>
       : null
+     
      }
     <form onSubmit={submitForm} className="w-3/4 p-6 bg-slate-900  shadow pb-40 pt-32 rounded-3xl">
     <div className='text-center bold text-white text-2xl  '>Takau Holdings Sign Up </div>

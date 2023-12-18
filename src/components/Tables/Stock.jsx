@@ -1,8 +1,18 @@
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React from 'react'
 
+
+function Stock() {
+  return (
+    <div>Stock</div>
+  )
+}
+
+export default Stock
+ /*
 export default function Stock() {
   return (
-<<<<<<< HEAD
+   
     <div>
     <TableContainer  className="" component={Paper}>
       <Table sx={{ minWidth: 700 }} >
@@ -47,9 +57,5 @@ export default function Stock() {
       </Table>
     </TableContainer>
     </div>
-  );}
-=======
-    <div>Stock</div>
-  )
-}
->>>>>>> 1678c35be3f4667db4b6f040f807147659ef2c9c
+    */
+  

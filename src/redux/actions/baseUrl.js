@@ -1,0 +1,1 @@
+export const baseUrl='https://takau-backend-production.up.railway.app/api/v1/'

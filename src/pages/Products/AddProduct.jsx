@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { createproduct } from '../../redux/actions/productsActions';
 
 export default function AddProduct() {
 
- //const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
- //const products= useSelector((state)=>state.products);
- //const {loading,error,data,success}=products
- //console.log(loading,error,data,success);
+ 
+ const products= useSelector((state)=>state.createProduct);
+
+ const {loading,error}=products
+ console.log(error,loading);
+ 
 
   const [name, setname] = useState("")
   const [brand, setbrand] = useState("")
@@ -23,9 +26,9 @@ export default function AddProduct() {
   const [image, setImage] = useState({})
 
  
-  const signature=user.signature;
+  //const signature=user.signature;
   const navigate = useNavigate();
- // const dispatch = useDispatch();
+ const dispatch = useDispatch();
 
 
 
@@ -34,43 +37,20 @@ export default function AddProduct() {
 console.log(image);
 function submit(e) {
   e.preventDefault()
-  const data= { name, brand,model,sellingPrice,buyingPrice,barcode,quantityBought,quantitySold,year,shelfNumber,signature,image}
-  //dispatch(createproduct(data))
-  /*
-  if (success) {
-    navigate("/Product")
-    dispatch(reset())
-    }
-    */
+ 
+  dispatch(createproduct(name,brand,model,sellingPrice,buyingPrice,barcode,quantityBought,quantitySold,year,shelfNumber,image))
+navigate("/Product")
 }
 
   return (
    
     <div className="flex items-center justify-center h-screen">
-      {
-      /* 
-      Display loading, error, or success messages based on authentication state 
-      {isLoading ? (
-        <h2>Loading....</h2>
-      ) : isError ? (
-        <h2>Error....</h2>
-      ) : null}
-*/
-      }
-      <form  className="w-3/4 p-6 bg-slate-100 shadow pb-40 pt-32 rounded-3xl">
+  
+      <form  onSubmit={submit} className="w-3/4 p-6 bg-slate-100 shadow pb-40 pt-32 rounded-3xl">
 
         <div className="text-center bold text-black text-2xl">Takau Holdings Register Items</div>
 
-{
-  /*
-  loading ? <h2>
-    Loading .......
-  </h2> :
-  error ? <h2>
-    Error...
-  </h2> :null
-*/
-}
+
         <div className="flex">
         <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
             <label htmlFor="name" className="mb-1 flex items-center text-black">

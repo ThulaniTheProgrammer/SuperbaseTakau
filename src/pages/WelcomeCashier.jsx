@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import CarName from '../components/carName';
-import { managerlogin, reset, tilloperatorlogin } from '../redux/features/auth/authSlice';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Welcome() {
-  const {user,isLoading,isError,isSuccess,message}= useSelector((state)=>state.auth);
-  console.log(message);
+
+  
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -20,21 +20,21 @@ async function submitForm(e) {
   e.preventDefault()
 
     const userData={email,password}
-    dispatch(tilloperatorlogin(userData))
+  //  dispatch(tilloperatorlogin(userData))
   
 
   
    
   }
   useEffect(() => {
-   
+  /* 
     if (isSuccess||user) {
     navigate("/Mainheader")
     }
    
-    
+    */
   
-    }, [user,isError,isSuccess,message,navigate,dispatch])
+    }, [navigate,dispatch])
     
  
 
@@ -49,13 +49,15 @@ async function submitForm(e) {
       
      {
       ///This is subject to change.I have done this as an example of how do it with Redux you can do it in the way you are comfortable with.
-      isLoading ? <h2>
+     /*
+     isLoading ? <h2>
         Loading....
       </h2> :
      isError ? <h2>
       {message}
       </h2>
       : null
+      */
      }
     </div>
       <div className="flex  justify-center">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import CarName from '../components/carName';
-import { adminlogin, managerlogin, reset } from '../redux/features/auth/authSlice';
+
 import { useDispatch, useSelector } from 'react-redux';
 import ManagerMain from '../components/ManagerMain';
 
@@ -18,7 +18,7 @@ async function submitForm(e) {
   e.preventDefault()
 
     const userData={email,password}
-    dispatch(adminlogin(userData))
+  //  dispatch(adminlogin(userData))
   
 
   
