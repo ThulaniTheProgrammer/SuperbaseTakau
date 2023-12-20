@@ -37,7 +37,7 @@ export const getProductReducer=(state={loading:true},action)=>{
 
 
     export const createProductReducer=(state={},action)=>{
-        switch (action) {
+        switch (action.type) {
             case CREATE_PRODUCT_REQUEST:
                 return {loading:true}
               case CREATE_PRODUCT_SUCCESS: 

@@ -9,8 +9,8 @@ export default function AddProduct() {
  
  const products= useSelector((state)=>state.createProduct);
 
- const {loading,error}=products
- console.log(error,loading);
+ const {loading,error,success}=products
+ console.log(products);
  
 
   const [name, setname] = useState("")
@@ -39,8 +39,15 @@ function submit(e) {
   e.preventDefault()
  
   dispatch(createproduct(name,brand,model,sellingPrice,buyingPrice,barcode,quantityBought,quantitySold,year,shelfNumber,image))
-navigate("/Product")
+//
 }
+
+useEffect(() => {
+  if (success) {
+    alert("You have succesfully added a new product now you are being directed to the products page")
+    navigate("/Product")
+  }
+}, [success])
 
   return (
    
@@ -50,7 +57,13 @@ navigate("/Product")
 
         <div className="text-center bold text-black text-2xl">Takau Holdings Register Items</div>
 
-
+{
+  loading ? <h2>
+    Loading...
+  </h2> : error ? <h2>
+    {error}
+  </h2>:null
+}
         <div className="flex">
         <div className="flex flex-col flex-grow mt-8 w-1/2 mr-4">
             <label htmlFor="name" className="mb-1 flex items-center text-black">

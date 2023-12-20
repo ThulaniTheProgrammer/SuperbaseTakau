@@ -82,9 +82,8 @@ export const createproduct =(name,brand,model,sellingPrice,buyingPrice,barcode,q
         console.log(data);    
   dispatch({type:CREATE_PRODUCT_SUCCESS,payload:data});
        } catch (error) {
-      const message=  error.response&& error.response.data.message
-          ? error.response.data.message
-          : error.message
+      
+      const message= error.response.data.msg
           dispatch({type:CREATE_PRODUCT_FAIL,payload:message})
   }
   
