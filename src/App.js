@@ -1,6 +1,5 @@
 
 import Loyout from './pages/loyout';
-
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Welcome from './pages/WelcomeCashier';
@@ -12,7 +11,7 @@ import SighnUp from './pages/SighnUp';
 import ManagerMain from './components/ManagerMain';
 import Product from './pages/Products/Product';
 import UpdateForm from './components/Tables/UpdateForm';
-//import Stock from './components/Tables/Stock';
+import Stock from './components/Tables/Stock';
 import Adminstrator from './pages/Users Registration/Adminstator';
 import Manager from './pages/Users Registration/Manager';
 import AddProduct from './pages/Products/AddProduct';
@@ -20,10 +19,9 @@ import Mainheader from './pages/mainheader';
 import AddAdministrator from './pages/Users Registration/AddAdministrator';
 import AddCashier from './pages/Users Registration/AddCashier';
 import Cashier from './pages/Users Registration/Cashier';
-//import CashierMain from './components/CashierMain';
-//import AddAdministrator from './pages/Users Registration/AddAdministrator';
-//import AddManager from './pages/Users Registration/AddManager';
+import CashierMain from './components/CashierMain';
 import Create from './pages/Products/CreateProduct';
+import CashierDataEntry from './pages/cashier/CashierDataEntry';
 
 
 
@@ -52,7 +50,7 @@ function App() {
           <Route path="AddAdministrator" element={<AddAdministrator />} />
           <Route path="AddCashier" element={<AddCashier />} />
           <Route path=" UpdateForm" element={< UpdateForm />} />
-          
+          <Route  path="CashierDataEntry" element={< CashierDataEntry/>}/>
       </Routes>
     </BrowserRouter>
   );

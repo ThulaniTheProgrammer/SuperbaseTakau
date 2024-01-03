@@ -31,7 +31,7 @@ const AddProduct = () => {
     const { data, error } = await supabase
       .from('Takau')
       .insert([formData]);
-
+      window.location.reload();
     if (error) {
       console.error('Error inserting data:', error);
     } else {
@@ -48,56 +48,60 @@ const AddProduct = () => {
     setShelfNumber('');
   };
 
-  const handleEditClick = (rowData) => {
-    setSelectedRowData(rowData);
-  };
-  
-
-
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        PartName:
-        <input type="text" value={PartName} onChange={(e) => setPartName(e.target.value)} />
+    <div className='flex text-xl bg-purple-50  items-center justify-center h-screen '>
+      
+    <form onSubmit={handleSubmit} className='bg-slate-600 p-10 rounded-2xl'>
+      <p className='flex justify-center text-3xl text-white mb-10'>Register Products</p>
+      <div className='flex flex-row'>
+      <label className=''>
+        PartName: <br />
+        <input className=' rounded-xl py-1  w-80' type="text" value={PartName} onChange={(e) => setPartName(e.target.value)} />
       </label>
       <br />
-      <label>
-        CarName:
-        <input type="text" value={CarName} onChange={(e) => setCarName(e.target.value)} />
+      <label className='mx-10'>
+        CarName: <br />
+        <input  className='rounded-xl  py-1  w-80' type="text" value={CarName} onChange={(e) => setCarName(e.target.value)} />
+      </label>
+    
+      </div>
+      <div className='flex flex-row'>
+      <label className='w-full'>
+        Model:<br/>
+        <input  className='rounded-xl  py-2 w-80' type="text" value={Model} onChange={(e) => setModel(e.target.value)} />
       </label>
       <br />
-      <label>
-        Model:
-        <input type="text" value={Model} onChange={(e) => setModel(e.target.value)} />
-      </label>
-      <br />
-        <label>
-            Year:
-            <input type="number" value={Year} onChange={(e) => setYear(e.target.value)} />
+        <label  className='mx-10'>
+            Year:<br/>
+            <input  className='rounded-xl  py-2 w-80' type="number" value={Year} onChange={(e) => setYear(e.target.value)} />
         </label>
         <br />
+        </div>
+        <div className='flex flex-row'>
         <label>
-            SellingPrice:
-            <input type="number" value={SellingPrice} onChange={(e) => setSellingPrice(e.target.value)} />
+            SellingPrice:<br/>
+            <input  className='rounded-xl  py-2 w-80' type="number" value={SellingPrice} onChange={(e) => setSellingPrice(e.target.value)} />
             </label>
         <br />
-        <label>
-            Barcode:
-            <input type="number" value={Barcode} onChange={(e) => setBarcode(e.target.value)} />
+        <label className='mx-10' >
+            Barcode:<br/>
+            <input  className='rounded-xl  py-2 w-80' type="number" value={Barcode} onChange={(e) => setBarcode(e.target.value)} />
             </label>
         <br />
+        </div>
         <label>
-            ShelfNumber:
-            <input type="number" value={ShelfNumber} onChange={(e) => setShelfNumber(e.target.value)} />
+            ShelfNumber:<br/>
+            <input  className='rounded-xl py-2 w-80' type="number" value={ShelfNumber} onChange={(e) => setShelfNumber(e.target.value)} />
             </label>
         <br />
 
 
 
 
-      <button type="submit">Add to Superbase</button>
+      <button className='text-xl font-bold text-white  bg-purple-500 rounded-xl py-2 mt-4 px-2'   type="submit">Add Products</button>
     </form>
+    </div>
   );
 };
 

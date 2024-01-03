@@ -67,9 +67,19 @@ async function handleEdit(event) {
     .from('Takau')
     .update({
       PartName: selectedRowData.PartName,
-      // ... other fields
+      CarName: selectedRowData.CarName,
+      Model: selectedRowData.Model,
+      Year: selectedRowData.Year,
+      SellingPrice: selectedRowData.SellingPrice,
+      Barcode: selectedRowData.Barcode,
+      ShelfNumber: selectedRowData.ShelfNumber,
+
+
+   
     })
     .eq('id', selectedRowData.id)
+
+    window.location.reload();
 
   if (error) {
     console.error('Error updating:', error);
@@ -123,7 +133,7 @@ async function handleEdit(event) {
         
       </form>
 
-      <table className='w-full'>
+      <table className='w-full mr-6'>
         <thead>
           <tr  className='bg-red-300'>
             <th>PartName</th>
@@ -133,7 +143,7 @@ async function handleEdit(event) {
             <th>SellingPrice</th>
             <th>Barcode</th>
             <th>ShelfNumber</th>
-        
+            <th>Edit</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -163,19 +173,16 @@ async function handleEdit(event) {
       
     
 
-      <form onSubmit={handleEdit}>
-      <input type="text" value={selectedRowData ? selectedRowData.PartName : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,PartName: e.target.value }); }} />
+      <form onSubmit={handleEdit} className='flex items-end w-full flex-col'>
+      <input className='rounded-xl mb-4 py-2 w-3/4  px-4 '  type="text" value={selectedRowData ? selectedRowData.PartName : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,PartName: e.target.value }); }} />
 
-        <input type="text" value={selectedRowData ? selectedRowData.CarName : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,CarName: e.target.value }); }} />
-        <input type="text" value={selectedRowData ? selectedRowData.Model : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,Model: e.target.value }); }} />
-        <input type="text" value={selectedRowData ? selectedRowData.Year : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,Year: e.target.value }); }} />
-        <input type="text" value={selectedRowData ? selectedRowData.SellingPrice : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,SellingPrice: e.target.value }); }} />
-        
-
-        <input type="text" value={selectedRowData ? selectedRowData.Barcode : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,Barcode: e.target.value }); }} />
-        <input type="text" value={selectedRowData ? selectedRowData.ShelfNumber : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,ShelfNumber: e.target.value }); }} />
-        {/* ... */}
-        <button type="submit">Submit</button>
+        <input  className='rounded-xl mb-4 py-2 px-4 w-3/4 '  type="text" value={selectedRowData ? selectedRowData.CarName : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,CarName: e.target.value }); }} />
+        <input  className='rounded-xl mb-4 py-2 w-3/4  px-4 '  type="text" value={selectedRowData ? selectedRowData.Model : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,Model: e.target.value }); }} />
+        <input  className='rounded-xl mb-4 py-2 w-3/4  px-4 '  type="text" value={selectedRowData ? selectedRowData.Year : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,Year: e.target.value }); }} />
+        <input  className='rounded-xl mb-4 py-2 w-3/4  px-4 '  type="text" value={selectedRowData ? selectedRowData.SellingPrice : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,SellingPrice: e.target.value }); }} />
+        <input  className='rounded-xl mb-4 py-2 w-3/4  px-4 '  type="text" value={selectedRowData ? selectedRowData.Barcode : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,Barcode: e.target.value }); }} />
+        <input  className='rounded-xl mb-4 py-2 w-3/4  px-4 '  type="text" value={selectedRowData ? selectedRowData.ShelfNumber : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,ShelfNumber: e.target.value }); }} />  
+        <button className='rounded-xl mb-4 py-2 w-3/4 bg-purple-400 text-xl' type="submit">Submit</button>
       </form>
 
 

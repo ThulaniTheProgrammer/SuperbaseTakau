@@ -38,7 +38,7 @@ export default function ManagerMain() {
   <div className='h-screen  bg-purple-50'>
     <div className='flex justify-between mt-4 mb-10'>
 <p className='text-3xl mx-6 text-red-500'>Japan Direct</p>
-<div className='border-red-300 border w-40 px-2 rounded-xl mx-8 flex items-center text-xl text-center justify-center text-slate-700'>Select Date</div>
+
 <div className='flex flex-col'>
   <div className='bg-black px-1 w-8 rounded-full mx-8'>
   </div>
