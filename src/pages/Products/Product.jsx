@@ -1,100 +1,95 @@
-import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Outlet, Link, Touchable } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import CarName from '../../components/carName';
+import Receipts from '../../components/receipts';
+import FinalReceipt from '../../finalReceipt';
+import { ImQrcode } from 'react-icons/im';
+import Cart from '../../components/cart';
+import SearchComponent from '../../components/searchComponet';
+import { AiOutlineDown } from "react-icons/ai";
+import SalesCard from '../../components/SalesCard';
+import Curve from '../../components/graphs/Curve';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import { AiOutlineUp } from "react-icons/ai";
+import Stock from '../../components/Tables/Stock';
+
+import { CiCreditCard2 } from "react-icons/ci";
+import { TbReport } from "react-icons/tb";
+import { AiOutlineStock } from "react-icons/ai";
+import { CiSettings } from "react-icons/ci";
+import { FiUsers } from "react-icons/fi";
+import { FaHouse } from "react-icons/fa6";
+import { MdOutlineHouse } from "react-icons/md";
+import { CiShoppingCart } from "react-icons/ci";
+import { LuSaveAll } from "react-icons/lu";
+import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+import AddProduct from './AddProduct';
 
 
-import { useEffect,useState } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
-import { getproducts } from '../../redux/actions/productsActions';
 
 
+export default function ManagerMain() {
+  
 
-
-const columns = [
-  { field: '_id', headerName: 'ID', width: 70 },
-  { field: 'name', headerName: 'Car Name', width: 130 },
-  { field: 'brand', headerName: 'Part Name', width: 130 },
-  { field: 'model', headerName: 'Model', width: 90 },
-  { field: 'year', headerName: 'Year', type: 'number', width: 5 },
-  { field: 'buyingPrice', headerName: 'BuyingPrice', type: 'number', width: 5 },
-  { field: 'sellingPrice', headerName: 'SellingPrice', type: 'number', width: 90 },
-  { field: 'barcode', headerName: 'Barcode',  width: 90 },
-  {
-    
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    valueGetter: (params) => `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-  },
-];
-
-/*
-const rows = [
-  { id: 1, name: 'Toyota', brand: 'Engine', age: 35 },
-  { id: 2, name: 'Mitsubishi', firstName: '', age: 42 },
-  { id: 3, name: 'Mazda', firstName: '', age: 45 },
-  { id: 4, name: 'Nissan', firstName: '', age: 16 },
-  { id: 5, name: 'Ford', firstName: '', age: null },
-  { id: 6, name: 'Honda', firstName: null, age: 150 },
-  { id: 7, name: 'Hundai', firstName: '', age: 44 },
-  { id: 8, name: 'Mazda', firstName: '', age: 36 },
-  { id: 9, name: '', firstName: '', age: 65 },
-
-];
-*/
-const headerClassName = 'font-bold';
-
-export default function Product() {
-
-  const [name, setname] = useState("Gear Box");
-const {data,error,loading,success}= useSelector((state)=>state.getProducts);
-const dispatch=useDispatch()
-console.log(data);
-
-  const [brand, setbrand] = useState("Toyota Aqua");
-  const [model, setmodel] = useState("V1");
-  const [year, setyear] = useState("2012");
-  const [barcode, setbarcode] = useState("1234587859403as127");
-//const dispatch= useDispatch();
-
-let rows=data;
-console.log(rows);
-useEffect(()=>{
-dispatch(getproducts())
-},[])
- 
-
+    let navigate = useNavigate();
   return (
-
-    <div className="h-400 w-full">
-        <div className='flex justify-between mt-4 mb-4 mx-4'>
-            <div className='text-2xl'>
-               Takau Holdings 
-            </div>
-            
-            <Link to="/AddProduct" className='rounded-lg flex items-center bg-pink-400 px-5'>Add Products</Link>
-        </div>
-        {
-
-      
-             loading ? <h2>
-            Loading.....
-          </h2> :
-          error ? <h2>Error....</h2>:
-          <DataGrid
-          rows={rows}
-          columns={columns.map((column) => ({
-            ...column,
-            headerClassName, // Apply the headerClassName to each column
-          }))}
-          pageSize={5}
-          checkboxSelection
-          getRowId={(row) => row._id}
-        />
-       
-        }
-    
-
+  <div className='h-screen  bg-purple-50'>
+    <div className='flex justify-between mt-4 mb-10'>
+<p className='text-3xl mx-6 text-red-500'>Japan Direct</p>
+<div className='border-red-300 border w-40 px-2 rounded-xl mx-8 flex items-center text-xl text-center justify-center text-slate-700'>Select Date</div>
+<div className='flex flex-col'>
+  <div className='bg-black px-1 w-8 rounded-full mx-8'>
+  </div>
+  <Link to="/AddProduct " className='text-xl mr-8 bg-red-500 text-white rounded-xl px-2'>Add Product</Link>
+</div>
     </div>
-  );
+    
+<div className='flex justify-between mr-6 '>
+<div className='mx-4 w-0.1'>
+       <ul className='text-black'>
+       
+       <li className='mb-1 flex items-center'>
+          <MdOutlineHouse className='pr-1 w-10 h-6 text-purple-400' />
+            <Link to="/">Menu</Link>
+          </li>
+
+          <li className='my-4 flex items-center'>
+          <CiCreditCard2 className='pr-1 w-10 h-6 text-purple-400' />
+            <Link to="/Product">Orders</Link>
+          </li>
+
+          <li className='my-4 flex items-center'>
+          <TbReport className='pr-1 w-10 h-6 text-purple-400' />
+            <Link to="/Product">Reports</Link>
+          </li>
+          
+          <li className='my-4 flex items-center'>
+          <AiOutlineStock  className='pr-1 w-10 h-6 text-purple-400' />
+            <Link to="/Product">Stock</Link>
+          </li>
+
+          <li className='my-4 flex items-center'>
+          <CiSettings className='pr-1 w-10 h-6 text-purple-400' />
+            <Link to="/SecondNav">Settings</Link>
+          </li>
+
+          <li className='my-4 flex items-center'>
+          <FiUsers className='pr-1 w-10 h-6 text-purple-400' />
+            <Link to="/Adminstrator">Users</Link>
+          </li>
+          
+         
+        </ul>
+
+       </div>
+       <Stock />
+</div>
+
+    </div>   
+
+
+
+  )
 }

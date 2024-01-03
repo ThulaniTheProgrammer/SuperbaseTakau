@@ -11,6 +11,7 @@ import WelcomeManager from './pages/WelcomeManager';
 import SighnUp from './pages/SighnUp';
 import ManagerMain from './components/ManagerMain';
 import Product from './pages/Products/Product';
+import UpdateForm from './components/Tables/UpdateForm';
 //import Stock from './components/Tables/Stock';
 import Adminstrator from './pages/Users Registration/Adminstator';
 import Manager from './pages/Users Registration/Manager';
@@ -22,6 +23,7 @@ import Cashier from './pages/Users Registration/Cashier';
 //import CashierMain from './components/CashierMain';
 //import AddAdministrator from './pages/Users Registration/AddAdministrator';
 //import AddManager from './pages/Users Registration/AddManager';
+import Create from './pages/Products/CreateProduct';
 
 
 
@@ -33,9 +35,10 @@ function App() {
 
           
           
-          
+    
           <Route path="WelcomeAdmin" element={<WelcomeAdmin/>} />
           <Route path="WelcomeManager" element={<WelcomeManager/>} />
+          <Route path="UpdateForm" element={<UpdateForm/>} />
           <Route path="SighnUp" element={<SighnUp/>} />
           <Route path="ManagerMain" element={<ManagerMain/>} />
           <Route  path="/" element={<WelcomeManager/>}/>
@@ -48,7 +51,7 @@ function App() {
           <Route  path="Manager" element={<Manager/>}/>
           <Route path="AddAdministrator" element={<AddAdministrator />} />
           <Route path="AddCashier" element={<AddCashier />} />
-         
+          <Route path=" UpdateForm" element={< UpdateForm />} />
           
       </Routes>
     </BrowserRouter>

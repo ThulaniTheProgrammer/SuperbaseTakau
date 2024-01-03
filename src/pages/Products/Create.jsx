@@ -10,8 +10,6 @@ const AddProduct = () => {
     const [SellingPrice, setSellingPrice] = useState('');
     const [Barcode, setBarcode] = useState('');
     const [ShelfNumber, setShelfNumber] = useState('');
-    const [selectedRowData, setSelectedRowData] = useState(null);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,13 +45,6 @@ const AddProduct = () => {
     setBarcode('');
     setShelfNumber('');
   };
-
-  const handleEditClick = (rowData) => {
-    setSelectedRowData(rowData);
-  };
-  
-
-
 
   return (
     <form onSubmit={handleSubmit}>
