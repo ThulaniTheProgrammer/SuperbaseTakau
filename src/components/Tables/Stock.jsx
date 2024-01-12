@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { useNavigate } from 'react-router';
 import AddProduct from '../../pages/Products/AddProduct';
+import { MdModeEdit } from "react-icons/md";
+import { MdDelete} from "react-icons/md";
 
 
 
@@ -159,11 +161,11 @@ async function handleEdit(event) {
               <td style={{ textAlign: 'center' }}>{Takau.ShelfNumber}</td>
 
               <td>
-    <button onClick={() => handleEditClick(Takau)}>Edit</button>
+    <button onClick={() => handleEditClick(Takau)}><MdModeEdit /></button>
   </td>
               
               <td>
-                            <button onClick={() => handleDelete(Takau.id)}>Delete</button>
+                            <button onClick={() => handleDelete(Takau.id)}><MdDelete /></button>
                         </td>
                        
             </tr>

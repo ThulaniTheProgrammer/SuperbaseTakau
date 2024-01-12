@@ -16,6 +16,7 @@ import Receipts from '../../components/receipts';
 import FinalReceipt from '../../finalReceipt';
 import ManagerMain from '../../components/ManagerMain';
 import Stock from '../../components/Tables/Stock';
+import { createClient } from '@supabase/supabase-js';
 
 let productList = [];
 
@@ -88,6 +89,32 @@ export default function CashierDataEntry() {
     updatedProductList.splice(index, 1);
     setCurrentProduct(updatedProductList);
   };
+// Initialize Supabase client
+const supabase = createClient('https://zpuplawsjodqxxfqxchz.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwdXBsYXdzam9kcXh4ZnF4Y2h6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDM5NjExOTMsImV4cCI6MjAxOTUzNzE5M30.90w9pY4C4uP9pa9V9nmt_9mRSOWUtIz_k-j82Aw6NmM');
+
+
+const handlePrintClick = async () => {
+  for (let product of currentProduct) {
+    const order = {
+      name: product.name,
+      model: product.model,
+      quantity: product.productQuantity,
+      partName: product.partName,
+   
+    };
+
+    let { error } = await supabase
+      .from('Orders')
+      .insert([order]);
+window.print();
+    if (error) console.log("Error: ", error);
+  }
+};
+
+
+
+
+
 
   return (
     <div>
@@ -166,8 +193,9 @@ export default function CashierDataEntry() {
         >
           Add
         </button>
+        
 
- <button  className='text-white bg-slate-500 rounded-md p-2 font-bold' onClick={handlePrint}>Print</button>
+ <button  className='text-white bg-slate-500 rounded-md p-2 font-bold' onClick={handlePrintClick}>Print</button>
 
       </div>
 
