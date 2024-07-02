@@ -21,7 +21,9 @@ import AddCashier from './pages/Users Registration/AddCashier';
 import Cashier from './pages/Users Registration/Cashier';
 import CashierMain from './components/CashierMain';
 import Create from './pages/Products/CreateProduct';
+import Orders from './pages/Products/Orders';
 import CashierDataEntry from './pages/cashier/CashierDataEntry';
+
 
 
 
@@ -38,6 +40,9 @@ function App() {
           <Route path="WelcomeManager" element={<WelcomeManager/>} />
           <Route path="UpdateForm" element={<UpdateForm/>} />
           <Route path="SighnUp" element={<SighnUp/>} />
+          <Route path="WelcomeCashier" element={<Welcome/>} />
+          <Route path="Create" element={<Create/>} />
+          <Route path="Orders" element={<Orders/>} />
           <Route path="ManagerMain" element={<ManagerMain/>} />
           <Route  path="/" element={<WelcomeManager/>}/>
           <Route  path="Product" element={<Product/>}/>

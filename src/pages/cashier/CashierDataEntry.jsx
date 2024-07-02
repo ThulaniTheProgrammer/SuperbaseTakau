@@ -120,6 +120,7 @@ window.print();
     <div>
       <div className='flex justify-between items-center'>
       <p className='text-2xl font-bold ml-6  text-red-500'>Japan Direct</p>
+      
         <div>
           <input
             onChange={(e) => setProductName(e.target.value)}

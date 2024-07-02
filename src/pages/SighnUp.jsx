@@ -57,11 +57,15 @@ const SignUp = () => {
 
 
   return (
-    <div className="flex items-center justify-center h-screen ">
+    <div className="flex items-center justify-center bg-[#002F63] px-20 py-20 h-screen ">
 
      
-    <form onSubmit={handleSubmit} className="w-3/4 p-6 bg-slate-900  shadow pb-40 pt-32 rounded-3xl">
-    <div className='text-center bold text-white text-2xl  '>Takau Holdings Sign Up </div>
+    <form onSubmit={handleSubmit} className=" p-6 bg-[#fffffd] rounded-xl w-1/2 shadow ">
+    <div className='flex pt-0 pb-20 justify-start'>
+    <img src="https://zpuplawsjodqxxfqxchz.supabase.co/storage/v1/object/public/Car%20parts/japan_direct_logo.png" width={100} alt="Japan Direct Logo" />
+     
+    </div>
+    <div className='text-center bold text-[#002F63]  text-4xl font-semibold'>Sign Up </div>
    
 
 <div className='flex '>
@@ -100,9 +104,11 @@ const SignUp = () => {
 
       
     
-      <div className=" text-white flex justify-center mt-20">
-        <button type="submit"      className="px-4 py-2 bg-red-400 text-white rounded ">Sign Up</button>
-        Already have an account?<Link to='/WelcomeManager'>Login</Link> 
+      <div className=" text-[#002F63]  flex justify-center mt-20">
+        <button type="submit"      className="px-4 py-2 bg-red-600 text-white font-semibold  rounded ">Sign Up</button>
+        <div className='pt-2 flex flex-row'>
+        <p className=''>Already have an account?</p><Link className='text-red-600' to='/WelcomeManager'>Login</Link>
+        </div> 
       </div>
      </form>
   
