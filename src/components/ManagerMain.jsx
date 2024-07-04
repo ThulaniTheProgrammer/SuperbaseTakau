@@ -50,7 +50,7 @@ export default function ManagerMain() {
 <div className='flex flex-col'>
   <div className='bg-black px-1 w-8 rounded-full mx-8'>
   </div>
-  <div className='text-xl mr-8 bg-red-500 text-white font-semibold rounded-xl px-2'>Administartor</div>
+  <div className='text-xl mr-8 bg-red-500 text-[#002F63] font-light rounded-xl py-2 px-2'>Administartor</div>
 </div>
     </div>
     
@@ -100,15 +100,15 @@ export default function ManagerMain() {
 <SalesCard Salename="Balance" Salenumber="$8250.00" Icon={< MdOutlineAccountBalanceWallet />}/>     
 </div>
 <div className='flex flex-row mt-3  mb-10 '>
-<div className='bg-purple-100 w-1/4 ml-3  rounded-xl'>
-<div className='flex flex-bottom mx-4 text-lg mt-2 text-slate-400'>Total Balance</div>
+<div className='bg-red-100 w-1/4 ml-3  rounded-xl'>
+<div className='flex flex-bottom mx-4 text-lg mt-2 text-[#002F63]'>Total Balance</div>
 
 <div className=''>
-  <CircularProgressbar className='px-16 mt-10 flex justify-center' value={20}  text='76%' />
+  <CircularProgressbar  className='px-16  text-red-500 mt-10 flex justify-center'  value={20} color='red'  text='%' />
  <div className='text-center'>
-    <p>Total Sales Made Today</p>
-    <p>$450.00</p>
-    <p className='text-black text-sm '>Previous transcation pertaining the last payment may not be included</p>
+    <p className='text-[#002F63]'>Total Sales Made Today</p>
+    <p className='text-[#002F63]'>$450.00</p>
+    <p className=' text-sm text-[#002F63]'>Previous transcation pertaining the last payment may not be included</p>
     </div>
  <div className='flex justify-between mx-4 mt-10'>
  <div className=''>
@@ -135,7 +135,7 @@ export default function ManagerMain() {
  </div>
 </div>
 </div>
-<div className=' w-3/4 mx-3 rounded-xl bg bg-purple-100'>
+<div className=' w-3/4 mx-3 rounded-xl bg bg-red-100'>
 <div>
     <Curve/>
   

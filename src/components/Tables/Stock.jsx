@@ -183,7 +183,7 @@ async function handleEdit(event) {
         <input  className='rounded-xl mb-4 py-2 w-3/4  px-4 '  type="text" value={selectedRowData ? selectedRowData.SellingPrice : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,SellingPrice: e.target.value }); }} />
         <input  className='rounded-xl mb-4 py-2 w-3/4  px-4 '  type="text" value={selectedRowData ? selectedRowData.Barcode : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,Barcode: e.target.value }); }} />
         <input  className='rounded-xl mb-4 py-2 w-3/4  px-4 '  type="text" value={selectedRowData ? selectedRowData.ShelfNumber : ''} onChange={(e) => {setSelectedRowData({...selectedRowData,ShelfNumber: e.target.value }); }} />  
-        <button className='rounded-xl mb-4 py-2 w-3/4 bg-purple-400 text-xl' type="submit">Submit</button>
+        <button className='rounded-xl mb-4 py-2 w-3/4 text-white bg-[#002F63] text-xl' type="submit">Submit</button>
       </form>
 
 
