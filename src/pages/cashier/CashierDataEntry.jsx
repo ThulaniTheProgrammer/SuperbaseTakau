@@ -117,10 +117,9 @@ window.print();
 
 
   return (
-    <div>
+    <div className='mt-4 px-2 py-4 bg-red-100 h-full flex-row'>
       <div className='flex justify-between items-center'>
-      <p className='text-2xl font-bold ml-6  text-red-500'>Japan Direct</p>
-      
+      <img src="https://zpuplawsjodqxxfqxchz.supabase.co/storage/v1/object/public/Car%20parts/japan_direct_logo.png" width={100} alt="Japan Direct Logo" />
         <div>
           <input
             onChange={(e) => setProductName(e.target.value)}
@@ -203,41 +202,35 @@ window.print();
  <div className='flex'>
 
   <div className='w-2/10 mr-12'>
-  <ul className='text-black '>
-
-<li className='mb-4 flex items-center'>
-
-      
+  <ul className='text-black'>
+       
+       <li className='mb-7 flex items-center'>
+          <MdOutlineHouse className='pr-1 w-10 h-7 text-red-500' />
+            <Link to="/">Menu</Link>
           </li>
 
-       <li className='mb-4 flex items-center'>
-          <MdOutlineHouse className='pr-1 w-10 h-6 text-purple-400' />
-        
-            <Link to="/">Home</Link>
+          <li className='my-7 flex items-center'>
+          <CiCreditCard2 className='pr-1 w-10 h-7 text-red-500' />
+            <Link to="/Product">Orders</Link>
           </li>
 
-          <li className='my-4 flex items-center'>
-          <CiCreditCard2 className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/Orders">Orders</Link>
-          </li>
-
-          <li className='my-4 flex items-center'>
-          <TbReport className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/ManagerMain">Reports</Link>
+          <li className='my-7 flex items-center'>
+          <TbReport className='pr-1 w-10 h-7 text-red-500' />
+            <Link to="/Product">Reports</Link>
           </li>
           
-          <li className='my-4 flex items-center'>
-          <AiOutlineStock  className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/Stock">Stock</Link>
+          <li className='my-7 flex items-center'>
+          <AiOutlineStock  className='pr-1 w-10 h-7 text-red-500' />
+            <Link to="/Product">Stock</Link>
           </li>
 
-          <li className='my-4 flex items-center'>
-          <CiSettings className='pr-1 w-10 h-6 text-purple-400' />
-            <Link to="/">Settings</Link>
+          <li className='my-7 flex items-center'>
+          <CiSettings className='pr-1 w-10 h-7 text-red-500' />
+            <Link to="/SecondNav">Settings</Link>
           </li>
 
-          <li className='my-4 flex items-center'>
-          <FiUsers className='pr-1 w-10 h-6 text-purple-400' />
+          <li className='my-7 flex items-center'>
+          <FiUsers className='pr-1 w-10 h-7 text-red-500' />
             <Link to="/Adminstrator">Users</Link>
           </li>
           
@@ -245,7 +238,7 @@ window.print();
         </ul>
 
   </div>
-      <div class="flex    flex-wrap  h-80  justify-center ">
+      <div class="flex    flex-wrap  h-full  justify-center ">
   
   <CarName carname="Toyota" />
   <CarName carname="mazda"/>
@@ -280,7 +273,7 @@ window.print();
 
          
           
-          <div id='print-content'  className='w-80 h-10   bg-slate-900 pr-4  rounded-2xl  mt-2 text-white'>
+          <div id='print-content'  className='w-full h-10    bg-[#002F63] pr-4  rounded-2xl  mt-2 text-white'>
            
 
             <div className='justify-between  items-center flex font-semibold pt-2 px-2'>

@@ -37,46 +37,47 @@ export default function ManagerMain() {
   return (
   <div className='h-screen  bg-purple-50'>
     <div className='flex justify-between mt-4 mb-10'>
-<p className='text-3xl mx-6 text-red-500'>Japan Direct</p>
+<p className='text-3xl mx-6 text-red-500'><img src="https://zpuplawsjodqxxfqxchz.supabase.co/storage/v1/object/public/Car%20parts/japan_direct_logo.png" width={100} alt="Japan Direct Logo" />
+</p>
 
 <div className='flex flex-col'>
   <div className='bg-black px-1 w-8 rounded-full mx-8'>
   </div>
-  <Link to="/AddProduct " className='text-xl mr-8 bg-red-500 text-white rounded-xl px-2'>Add Product</Link>
+  <Link to="/AddProduct " className='text-xl mr-8 bg-red-500 text-white rounded-xl py-2 px-2'>Add Product</Link>
 </div>
     </div>
     
 <div className='flex justify-between mr-6 '>
 <div className='mx-4 w-0.1'>
-       <ul className='text-black'>
+<ul className='text-black'>
        
-       <li className='mb-1 flex items-center'>
-          <MdOutlineHouse className='pr-1 w-10 h-6 text-purple-400' />
+       <li className='mb-7 flex items-center'>
+          <MdOutlineHouse className='pr-1 w-10 h-7 text-red-500' />
             <Link to="/">Menu</Link>
           </li>
 
-          <li className='my-4 flex items-center'>
-          <CiCreditCard2 className='pr-1 w-10 h-6 text-purple-400' />
+          <li className='my-7 flex items-center'>
+          <CiCreditCard2 className='pr-1 w-10 h-7 text-red-500' />
             <Link to="/Product">Orders</Link>
           </li>
 
-          <li className='my-4 flex items-center'>
-          <TbReport className='pr-1 w-10 h-6 text-purple-400' />
+          <li className='my-7 flex items-center'>
+          <TbReport className='pr-1 w-10 h-7 text-red-500' />
             <Link to="/Product">Reports</Link>
           </li>
           
-          <li className='my-4 flex items-center'>
-          <AiOutlineStock  className='pr-1 w-10 h-6 text-purple-400' />
+          <li className='my-7 flex items-center'>
+          <AiOutlineStock  className='pr-1 w-10 h-7 text-red-500' />
             <Link to="/Product">Stock</Link>
           </li>
 
-          <li className='my-4 flex items-center'>
-          <CiSettings className='pr-1 w-10 h-6 text-purple-400' />
+          <li className='my-7 flex items-center'>
+          <CiSettings className='pr-1 w-10 h-7 text-red-500' />
             <Link to="/SecondNav">Settings</Link>
           </li>
 
-          <li className='my-4 flex items-center'>
-          <FiUsers className='pr-1 w-10 h-6 text-purple-400' />
+          <li className='my-7 flex items-center'>
+          <FiUsers className='pr-1 w-10 h-7 text-red-500' />
             <Link to="/Adminstrator">Users</Link>
           </li>
           
