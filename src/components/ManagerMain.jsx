@@ -96,7 +96,7 @@ export default function ManagerMain() {
 <div className='flex w-full h-32 rounded-md'>
 
 <SalesCard Salename="Orders" Salenumber="250" Icon={< CiShoppingCart />}/>
-<SalesCard Salename="Earnings" Salenumber="$350.00"   Icon={< LuSaveAll />}/>
+<SalesCard Salename="Expenses" Salenumber="$350.00"   Icon={< LuSaveAll />}/>
 <SalesCard Salename="Balance" Salenumber="$8250.00" Icon={< MdOutlineAccountBalanceWallet />}/>     
 </div>
 <div className='flex flex-row mt-3  mb-10 '>

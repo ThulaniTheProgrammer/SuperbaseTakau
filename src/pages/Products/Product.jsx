@@ -83,7 +83,6 @@ export default function ManagerMain() {
           
          
         </ul>
-
        </div>
        <Stock />
 </div>

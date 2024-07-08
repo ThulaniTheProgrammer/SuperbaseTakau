@@ -9,7 +9,7 @@ export default function SalesCard(props) {
     </div>
     <div className='text-3xl pb-4 font-medium'>{props.Salenumber}</div>
     <div className='flex justify-between'>
-        <p className='flex items-center underline text-[#002F63]'>View all Orders</p>
+        <p className='flex items-center underline text-[#002F63]'>View all </p>
         <div className='text-white py-1 px-1 bg-red-200  rounded-3xl'>{props.Icon}</div>
     
     </div>
